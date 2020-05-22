@@ -14,7 +14,7 @@ module.exports.handler = (event, context, callback) => {
 
     const testBuf = new Buffer("testing testing 1 2 3");
 
-    axios.post("https://api.github.com/repos/akirillo/begin_2.0-jamstack/contents/src/data/test.txt", {
+    axios.put("https://api.github.com/repos/akirillo/begin_2.0-jamstack/contents/src/data/test.txt", {
       message: "testing github api",
       content: testBuf.toString("base64")
     })
