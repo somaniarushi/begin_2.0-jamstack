@@ -1,21 +1,5 @@
 // TODO: dear user, please change this to your own instance
-const netlifyInstance = "https://jamstack-hackathon-starter.netlify.com"
-if (netlifyInstance === "https://jamstack-hackathon-starter.netlify.com") {
-  console.warn(`
-
-**************************
-WARNING: currently using Netlify Identity of https://jamstack-hackathon-starter.netlify.com
-
-this is only meant for the working demo. if you forked or copied this code, you won't have access to this netlify identity instance
-
-Go to your site, enable Netlify Identity, and paste that string here
-
-
-More docs: https://www.netlify.com/docs/identity/
-
-**************************
-`)
-}
+const netlifyInstance = "https://confident-shaw-66a094.netlify.app/.netlify/identity"
 
 module.exports = {
   siteMetadata: {
