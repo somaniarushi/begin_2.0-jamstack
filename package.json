@@ -23,14 +23,21 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "react-netlify-identity-widget": "^0.2.5"
+    "react-netlify-identity-widget": "^0.2.5",
+    "rehype-parse": "^6.0.2",
+    "rehype-remark": "^8.0.0",
+    "remark-stringify": "^8.0.0",
+    "rss-parser": "^3.8.0",
+    "unified": "^9.0.0",
+    "vfile": "^4.1.1",
+    "vfile-reporter": "^6.0.1"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "postinstall": "netlify-lambda install",
+    "postinstall_x": "netlify-lambda install",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
