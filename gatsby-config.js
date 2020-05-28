@@ -1,4 +1,3 @@
-// TODO: dear user, please change this to your own instance
 const netlifyInstance = "https://confident-shaw-66a094.netlify.app/.netlify/identity"
 
 module.exports = {
