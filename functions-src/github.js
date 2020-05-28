@@ -60,7 +60,7 @@ function GithubAPI(auth) {
         if (!repo) {
             throw 'Repository is not initialized';
         }
-        if (!currentBranch.hasOwnProperty('name')) {
+        if (!Object.prototype.hasOwnProperty.call(currentBranch, "name")) {
             throw 'Branch is not set';
         }
 
@@ -169,7 +169,7 @@ function GithubAPI(auth) {
     function updateHead() {
         return repo.updateHead('heads/' + currentBranch.name, newCommit.sha);
     }
-};
+}
 
 module.exports = {
     GithubAPI
