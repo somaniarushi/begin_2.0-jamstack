@@ -6,7 +6,14 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 class IndexPage extends React.Component {
-  state = { loading: false, msg: null }
+  constructor(props) {
+    super(props);
+
+    this.state = { loading: false, msg: null };
+    
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
   handleClick = e => {
     e.preventDefault()
 
@@ -72,8 +79,8 @@ class IndexPage extends React.Component {
             </ul>
             <hr />
             <p>
-              You can still access Netlify functions even on static "marketing
-              pages". This function is available at{" "}
+              You can still access Netlify functions even on static marketing
+              pages. This function is available at{" "}
               <a href="/.netlify/functions/token-hider">
                 <code>/.netlify/functions/token-hider</code>
               </a>{" "}
@@ -88,7 +95,7 @@ class IndexPage extends React.Component {
             {msg ? (
               <img src={msg[Math.floor(Math.random() * 10)]} alt="dog"></img>
             ) : (
-              <pre>"Click the button and watch this!"</pre>
+              <pre>Click the button and watch this!</pre>
             )}
           </div>
           <div

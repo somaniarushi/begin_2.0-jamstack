@@ -3,7 +3,7 @@ import { Link, navigate } from "gatsby"
 
 import { useIdentityContext } from "react-netlify-identity-widget"
 
-export default () => {
+const NavBar = () => {
   const { user, isLoggedIn, logoutUser } = useIdentityContext()
   let message = isLoggedIn
     ? `Hello, ${user.user_metadata && user.user_metadata.full_name}`
@@ -45,3 +45,5 @@ export default () => {
     </div>
   )
 }
+
+export default NavBar

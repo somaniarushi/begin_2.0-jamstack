@@ -1,9 +1,10 @@
 const axios = require("axios")
-const qs = require("qs")
+// const qs = require("qs")
 
-exports.handler = async function(event, context) {
+// eslint-disable-next-line no-unused-vars
+exports.handler = async function(_event, _context) {
   // apply our function to the queryStringParameters and assign it to a variable
-  const API_PARAMS = qs.stringify(event.queryStringParameters)
+  // const API_PARAMS = qs.stringify(event.queryStringParameters)
   // Get env var values defined in our Netlify site UI
   // TODO: change this
   const { API_SECRET = "shiba" } = process.env

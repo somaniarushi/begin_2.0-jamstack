@@ -2,14 +2,16 @@
 
 // Note that `netlify-lambda` only locally emulates Netlify Functions, while `netlify-identity-widget` interacts with a real Netlify Identity instance. This means that `netlify-lambda` doesn't support Netlify Functions + Netlify Identity integration.
 
-const axios = require("axios");
+// const axios = require("axios");
 var vfile = require('vfile')
-var report = require('vfile-reporter')
+// var report = require('vfile-reporter')
 var unified = require('unified')
 var parseRehype = require('rehype-parse')
 var rehype2remark = require('rehype-remark')
 var stringify = require('remark-stringify')
+const config = require("../config");
 const Parser = require("rss-parser");
+
 const rssParser = new Parser();
 const { GithubAPI } = require("./github");
 
@@ -19,8 +21,8 @@ module.exports.handler = (event, context, callback) => {
     // const { identity, user } = context.clientContext;
 
     let gh = new GithubAPI({
-      username: "",
-      password: ""
+      username: config.username,
+      password: config.password
     });
 
     gh.setRepo('akirillo', 'begin_2.0-jamstack');

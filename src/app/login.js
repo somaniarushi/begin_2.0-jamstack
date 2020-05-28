@@ -1,14 +1,14 @@
 import React from "react"
-import { navigate } from "gatsby"
+// import { navigate } from "gatsby"
 
 import {
   IdentityModal,
-  useIdentityContext,
+  // useIdentityContext,
 } from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
 
 function Login() {
-  const identity = useIdentityContext()
+  // const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
   return (
     <>
@@ -18,8 +18,8 @@ function Login() {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={user => navigate("/app/profile")}
-        onSignup={user => navigate("/app/profile")}
+        // onLogin={user => navigate("/app/profile")}
+        // onSignup={user => navigate("/app/profile")}
       />
     </>
   )

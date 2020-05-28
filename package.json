@@ -8,6 +8,8 @@
     "@reach/tabs": "^0.1.6",
     "@reach/visually-hidden": "^0.1.4",
     "axios": "^0.19.2",
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-react": "^7.20.0",
     "gatsby": "^2.15.11",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-create-client-paths": "^2.1.6",
@@ -46,6 +48,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
+    "eslint": "^7.1.0",
     "netlify-lambda": "^1.6.3",
     "prettier": "^1.18.2"
   },

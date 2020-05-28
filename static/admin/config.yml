@@ -1,0 +1,24 @@
+backend:
+  name: 'git-gateway'
+  branch: 'master'
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: 'static/img'
+public_folder: '/img'
+
+collections:
+  - name: 'rss'
+    label: 'RSS'
+    folder: 'src/data/rss'
+    create: true
+    slug: '{{slug}}-{{year}}-{{month}}-{{day}}'
+    # extension: json // TODO: Test storing/editing JSON content instead of Markdown.
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'rss-post' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

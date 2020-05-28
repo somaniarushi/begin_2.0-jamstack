@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import NavBar from "./components/NavBar"
@@ -21,8 +22,13 @@ const App = () => {
     </Layout>
   )
 }
+
 function PublicRoute(props) {
   return <div>{props.children}</div>
+}
+
+PublicRoute.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
 export default App
