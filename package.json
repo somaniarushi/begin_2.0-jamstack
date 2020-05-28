@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "eslint": "^7.1.0",
+    "jsdoc": "^3.6.4",
     "netlify-lambda": "^1.6.3",
     "prettier": "^1.18.2"
   },
