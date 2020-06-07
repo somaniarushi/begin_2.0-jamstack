@@ -14,7 +14,7 @@ var stringify = require('remark-stringify')
 const { GithubAPI } = require("./github");
 
 const {FB, FacebookApiException} = require('fb');
-FB.setAccessToken(config.apikey) //Re-input
+FB.setAccessToken(config.apikey) 
 
 /**
  * Pulls in RSS content in HTML form, transforms it into Markdown, and pushes it to Github.
@@ -28,18 +28,20 @@ const sourceFB = (_event, context, callback) => {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
-      username: config.username, //Reinput
+      username: config.username,
       password: config.password,
     });
 
-    gh.setRepo('somaniarushi', 'begin_2.0-jamstack');
+    gh.setRepo(config.username, config.reponame);
     gh.setBranch('master')
       .then(() => {
-        FB.api(
-            '/techvista18',
-            'GET',
-            {"fields":"feed"},
-            function(response) {
+        FB.api('', 'post', {
+          batch: [
+              { method: 'get', relative_url: '/me/events'},
+              {method: 'get', relative_url: '/techvista18/events'},
+            ]
+          },
+        function(response) {
                 
                 const processor = unified()
                 .use(parseRehype, {emitParseErrors: true, duplicateAttribute: false})
@@ -49,9 +51,9 @@ const sourceFB = (_event, context, callback) => {
                 const filesToPush = [];
                 const filePromises = [];
 
-                response.feed.data.forEach(item => {
-                    filePromises.push(processor.process(vfile(Buffer.from(item.message))));
-                  })
+                response.forEach(item => {
+                    filePromises.push(processor.process(vfile(Buffer.from(item.body))));
+                  });
                   
                 Promise.all(filePromises)
                   .then(files => {
@@ -64,7 +66,7 @@ const sourceFB = (_event, context, callback) => {
                 .then(() => {
                   callback(null, {
                     statusCode: 200,
-                    body: JSON.stringify(response.feed.data),
+                    body: JSON.stringify(response),
                   })
                 })
             })
@@ -74,6 +76,9 @@ const sourceFB = (_event, context, callback) => {
                     
             }
         };
-        
+
+const formatter = (file) => { //TODO: edit JSON file to display specific information in the CMS
+  return file.toString();
+}
  
 module.exports.handler = sourceFB;
