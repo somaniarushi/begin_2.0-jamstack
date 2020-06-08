@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  functions = "functions-src"
+  functions = "functions"
   publish = "public"
 
 [[redirects]]
