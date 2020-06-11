@@ -1,5 +1,3 @@
-const netlifyInstance = "https://confident-shaw-66a094.netlify.app/.netlify/identity"
-
 module.exports = {
   siteMetadata: {
     title: "JAMstack Hackathon Starter",
@@ -12,12 +10,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-identity`,
-      options: {
-        url: netlifyInstance,
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -40,6 +32,8 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

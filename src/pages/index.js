@@ -45,17 +45,6 @@ class IndexPage extends React.Component {
                 and <Link to="/page-2/">page 2.</Link>{" "}
               </li>
               <li>
-                It also has a dynamically generated clientside app guarded by
-                authentication:
-                <ul>
-                  <li>
-                    <Link to="/app/">
-                      <b>Go to App (with Netlify Identity)</b>
-                    </Link>{" "}
-                  </li>
-                </ul>
-              </li>
-              <li>
                 You can{" "}
                 <a href="https://github.com/sw-yx/jamstack-hackathon-starter">
                   view source here
