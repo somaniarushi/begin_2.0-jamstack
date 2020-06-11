@@ -11,7 +11,7 @@ var unified = require('unified')
 var parseRehype = require('rehype-parse')
 var rehype2remark = require('rehype-remark')
 var stringify = require('remark-stringify')
-const config = require("../config");
+// const config = require("../config");
 const Parser = require("rss-parser");
 
 const rssParser = new Parser();
@@ -29,8 +29,8 @@ const sourceRSS = (_event, context, callback) => {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
-      username: config.username,
-      password: config.password
+      // username: config.username,
+      // password: config.password
     });
 
     gh.setRepo('akirillo', 'begin_2.0-jamstack');

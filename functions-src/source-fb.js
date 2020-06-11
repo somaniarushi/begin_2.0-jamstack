@@ -8,13 +8,13 @@ var vfile = require('vfile')
 var unified = require('unified')
 var parseRehype = require('rehype-parse')
 var rehype2remark = require('rehype-remark')
-const config = require("../config");
+// const config = require("../config");
 var stringify = require('remark-stringify')
 
 const { GithubAPI } = require("./github");
 
 const {FB, FacebookApiException} = require('fb');
-FB.setAccessToken(config.apikey) 
+// FB.setAccessToken(config.apikey) 
 
 /**
  * Pulls in RSS content in HTML form, transforms it into Markdown, and pushes it to Github.
@@ -28,11 +28,11 @@ const sourceFB = (_event, context, callback) => {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
-      username: config.username,
-      password: config.password,
+      // username: config.username,
+      // password: config.password,
     });
 
-    gh.setRepo(config.username, config.reponame);
+    // gh.setRepo(config.username, config.reponame);
     gh.setBranch('master')
       .then(() => {
         FB.api('', 'post', {
