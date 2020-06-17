@@ -3,7 +3,6 @@
  */
 
 const config = require("../config");
-
 const { GithubAPI } = require("./github");
 const {FB, FacebookApiException} = require('fb');
 FB.setAccessToken(config.apikey)
@@ -22,7 +21,7 @@ const sourceFB = (_event, context, callback) => {
     });
 
     gh.setRepo('akirillo', 'begin_2.0-jamstack');
-    gh.setBranch('data-source-fb')
+    gh.setBranch('master')
       .then(() => {
         FB.api('', 'post', {
           batch: [
@@ -37,6 +36,10 @@ const sourceFB = (_event, context, callback) => {
           response.forEach(item => {
             const file = JSON.parse(item.body);
             file.data.forEach(event => {
+              event.source = "fb";
+              event.templateKey = "fb-post";
+              event.url = `facebook.com/${event.id}`;
+              event.location = (event.hasOwnProperty('place')) ? event.place.name : "";
                 filesToPush.push({ content: JSON.stringify(event), path: `src/data/fb/fb-${event.start_time}.json` })
               })
           })
