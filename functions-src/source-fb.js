@@ -39,6 +39,9 @@ const sourceFB = (_event, context, callback) => {
               event.source = "fb";
               event.templateKey = "fb-post";
               event.url = `facebook.com/${event.id}`;
+              event.title = event.name;
+              event.page = event.id;
+              event.date = event.start_time;
               event.location = (event.hasOwnProperty('place')) ? event.place.name : "";
                 filesToPush.push({ content: JSON.stringify(event), path: `src/data/fb/fb-${event.start_time}.json` })
               })
