@@ -26,3 +26,19 @@ collections:
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
+
+  - name: 'facebook'
+    label: 'FB'
+    folder: 'src/data/fb'
+    create: true
+    slug: '{{source}}-{{year}}-{{month}}-{{datetime}}'
+    extension: json
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'fb-post' }
+      - { label: 'Source', name: 'source', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Url', name: 'url', widget: 'string' }
+      - { label: 'Page', name: 'page', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Date', name: 'date', widget:'text' }
+      - { label: 'Location', name: 'location', widget: 'string' }
