@@ -3,6 +3,9 @@
  */
 
 const config = require("../config");
+const moment = require("moment");
+const { v4: uuidv4 } = require("uuid");
+
 const { GithubAPI } = require("./github");
 const {FB, FacebookApiException} = require('fb');
 FB.setAccessToken(config.apikey)
@@ -20,8 +23,7 @@ const sourceFB = (_event, context, callback) => {
       token: config.token
     });
 
-    gh.setRepo('akirillo', 'begin_2.0-jamstack');
-    gh.setBranch('master')
+    gh.init()
       .then(() => {
         FB.api('', 'post', {
           batch: [
@@ -36,14 +38,18 @@ const sourceFB = (_event, context, callback) => {
           response.forEach(item => {
             const file = JSON.parse(item.body);
             file.data.forEach(event => {
-              event.source = "fb";
+              const date = moment(event.start_time).format("YYYY-MM-DD");
+              const id = uuidv4();
+
               event.templateKey = "fb-post";
+              event.source = "fb";
               event.url = `facebook.com/${event.id}`;
               event.title = event.name;
               event.page = event.id;
-              event.date = event.start_time;
+              event.date = date;
               event.location = (event.hasOwnProperty('place')) ? event.place.name : "";
-                filesToPush.push({ content: JSON.stringify(event), path: `src/data/fb/fb-${event.start_time}.json` })
+              
+              filesToPush.push({ content: JSON.stringify(event), path: `src/data/fb/fb-${date}-${id}.json` })
               })
           })
 

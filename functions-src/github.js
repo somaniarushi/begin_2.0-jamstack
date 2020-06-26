@@ -10,6 +10,11 @@ function GithubAPI(auth) {
     //the underlying library for making requests
     let gh = new GitHub(auth);
 
+    this.init = () => {
+      this.setRepo('akirillo', 'begin_2.0-jamstack');
+      return this.setBranch('master')
+    }
+
     /**
      * Sets the current repository to make push to
      * @public

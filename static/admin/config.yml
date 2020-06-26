@@ -16,10 +16,11 @@ collections:
     label: 'RSS'
     folder: 'src/data/rss'
     create: true
-    slug: '{{source}}-{{year}}-{{month}}-{{day}}'
+    slug: '{{source}}-{{date}}'
     extension: json
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'rss-post' }
+      - { label: 'ID', name: 'id', widget: 'string' }
       - { label: 'Source', name: 'source', widget: 'string' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Url', name: 'url', widget: 'string' }
@@ -31,10 +32,11 @@ collections:
     label: 'FB'
     folder: 'src/data/fb'
     create: true
-    slug: '{{source}}-{{year}}-{{month}}-{{datetime}}'
+    slug: '{{source}}-{{date}}'
     extension: json
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'fb-post' }
+      - { label: 'ID', name: 'id', widget: 'string' }
       - { label: 'Source', name: 'source', widget: 'string' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Url', name: 'url', widget: 'string' }
@@ -42,3 +44,19 @@ collections:
       - { label: 'Description', name: 'description', widget: 'markdown' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Location', name: 'location', widget: 'string' }
+
+  - name: 'ird'
+    label: 'IRD Resource'
+    folder: 'src/data/ird'
+    create: true
+    slug: '{{source}}-{{date}}'
+    extension: json
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'ird-resource' }
+      - { label: 'ID', name: 'id', widget: 'string' }
+      - { label: 'Source', name: 'source', widget: 'list' }
+      - { label: 'Tags', name: 'tags', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Url', name: 'url', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
