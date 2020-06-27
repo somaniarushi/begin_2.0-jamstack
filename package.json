@@ -25,6 +25,7 @@
     "gatsby-transformer-json": "^2.4.5",
     "gatsby-transformer-sharp": "^2.2.13",
     "github-api": "^3.3.0",
+    "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "netlify-cms-app": "^2.12.14",
     "prop-types": "^15.7.2",
