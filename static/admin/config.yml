@@ -16,7 +16,7 @@ collections:
     label: 'RSS'
     folder: 'src/data/rss'
     create: true
-    slug: '{{source}}-{{date}}'
+    slug: '{{source}}-{{date}}-{{id}}'
     extension: json
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'rss-post' }
@@ -32,7 +32,7 @@ collections:
     label: 'FB'
     folder: 'src/data/fb'
     create: true
-    slug: '{{source}}-{{date}}'
+    slug: '{{source}}-{{date}}-{{id}}'
     extension: json
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'fb-post' }
@@ -49,7 +49,7 @@ collections:
     label: 'IRD Resource'
     folder: 'src/data/ird'
     create: true
-    slug: '{{source}}-{{date}}'
+    slug: '{{source}}-{{date}}-{{id}}'
     extension: json
     fields:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'ird-resource' }

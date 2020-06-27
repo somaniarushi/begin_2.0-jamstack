@@ -7,7 +7,7 @@ const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 
 const { GithubAPI } = require("./github");
-const {FB, FacebookApiException} = require('fb');
+const { FB } = require('fb');
 FB.setAccessToken(config.apikey)
 
 /**
@@ -41,15 +41,17 @@ const sourceFB = (_event, context, callback) => {
               const date = moment(event.start_time).format("YYYY-MM-DD");
               const id = uuidv4();
 
-              event.templateKey = "fb-post";
-              event.source = "fb";
-              event.url = `facebook.com/${event.id}`;
-              event.title = event.name;
-              event.page = event.id;
-              event.date = date;
-              event.location = (event.hasOwnProperty('place')) ? event.place.name : "";
-              
-              filesToPush.push({ content: JSON.stringify(event), path: `src/data/fb/fb-${date}-${id}.json` })
+              filesToPush.push({ content: JSON.stringify({
+                  templateKey: "fb-post",
+                  id,
+                  source: "fb",
+                  title: event.name,
+                  url: `facebook.com/${event.id}`,
+                  page: "test page",
+                  description: event.description,
+                  date,
+                  location: (Object.prototype.hasOwnProperty.call(event, 'place')) ? event.place.name : ""
+                }), path: `src/data/fb/fb-${date}-${id}.json` })
               })
           })
 
