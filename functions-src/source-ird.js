@@ -20,7 +20,7 @@ const { GithubAPI } = require("./github")
  * @param {netlifyCallback} callback: Defined like callback in an AWS Lambda function, used to return either an error, or a response object.
  */
 const sourceIRD = (_event, context, callback) => {
-  if (context.clientContext) {
+    if (context.clientContext) {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
