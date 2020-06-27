@@ -1,1 +1,17 @@
-{"templateKey":"ird-resource","source":"ird","id":"8e779cf7-3c55-4501-bf43-c35ec936e7eb","tags":["Networks","Student Groups","Graduate Student","LGTBQA+","Rolling","General"],"title":"Queers in Computer Science and Engineering","url":"http://qicse.cs.berkeley.edu/?_ga=2.142764533.19290003.1551058960-1317627104.1517111811","description":"QICSE is the organization of queer graduate students in Computer Science and Electrical Engineering at the University of California at Berkeley. QICSE is a social group that supports gay, lesbian, bisexual, transgender, intersex, questioning, or queer grad students and their allies within the EECS department by offering them opportunities to connect to each other and with the broader campus community.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "8e779cf7-3c55-4501-bf43-c35ec936e7eb",
+  "tags": [
+    "Networks",
+    "Student Groups",
+    "Graduate Student",
+    "LGTBQA+",
+    "Rolling",
+    "General"
+  ],
+  "title": "Queers in Computer Science and Engineering",
+  "url": "http://qicse.cs.berkeley.edu/?_ga=2.142764533.19290003.1551058960-1317627104.1517111811",
+  "description": "QICSE is the organization of queer graduate students in Computer Science and Electrical Engineering at the University of California at Berkeley. QICSE is a social group that supports gay, lesbian, bisexual, transgender, intersex, questioning, or queer grad students and their allies within the EECS department by offering them opportunities to connect to each other and with the broader campus community.",
+  "date": "2020-06-25"
+}

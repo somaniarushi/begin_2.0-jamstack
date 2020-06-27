@@ -7,13 +7,13 @@ import SEO from "../components/seo"
 
 class IndexPage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { loading: false, msg: null };
-    
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { loading: false, msg: null }
+
+    this.handleClick = this.handleClick.bind(this)
   }
-  
+
   handleClick = e => {
     e.preventDefault()
 

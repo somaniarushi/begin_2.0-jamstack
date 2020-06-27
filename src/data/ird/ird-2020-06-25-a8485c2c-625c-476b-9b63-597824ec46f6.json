@@ -1,1 +1,10 @@
-{"templateKey":"ird-resource","source":"ird","id":"a8485c2c-625c-476b-9b63-597824ec46f6","tags":["Events","Undergraduate Student"],"title":"approve me","url":"adfs","description":"dsaf","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "a8485c2c-625c-476b-9b63-597824ec46f6",
+  "tags": ["Events", "Undergraduate Student"],
+  "title": "approve me",
+  "url": "adfs",
+  "description": "dsaf",
+  "date": "2020-06-25"
+}

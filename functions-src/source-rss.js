@@ -2,17 +2,16 @@
  * @callback netlifyCallback
  */
 
-const config = require("../config");
-const Parser = require("rss-parser");
-const moment = require("moment");
-const { v4: uuidv4 } = require("uuid");
+const config = require("../config")
+const Parser = require("rss-parser")
+const moment = require("moment")
+const { v4: uuidv4 } = require("uuid")
 
-
-const rssParser = new Parser();
-const { GithubAPI } = require("./github");
+const rssParser = new Parser()
+const { GithubAPI } = require("./github")
 
 /**
- * Pulls in RSS content, saves the source, title, url, author, excerpt, and date of each item in a JSON, and pushes
+ * Pulls in RSS content, saves the source, id, title, url, author, excerpt, and date of each item in a JSON, and pushes
  * these JSONs as files to Github, where they are recognized by Netlify CMS.
  * @async
  * @param {Object} event: Provided by Netlify, this is similar to the event object received from the AWS API Gateway.
@@ -24,20 +23,20 @@ const sourceRSS = (_event, context, callback) => {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
-      token: config.gitHubToken
-    });
+      token: config.gitHubToken,
+    })
 
     gh.init()
       .then(() => {
-        rssParser.parseURL("http://scet.berkeley.edu/feed/")
-          .then(feed => {
-            const filesToPush = [];
+        rssParser.parseURL("http://scet.berkeley.edu/feed/").then(feed => {
+          const filesToPush = []
 
-            feed.items.forEach(item => {
-              const date = moment(item.isoDate).format("YYYY-MM-DD");
-              const id = uuidv4();
+          feed.items.forEach(item => {
+            const date = moment(item.isoDate).format("YYYY-MM-DD")
+            const id = uuidv4()
 
-              filesToPush.push({ content: JSON.stringify({
+            filesToPush.push({
+              content: JSON.stringify({
                 templateKey: "rss-post",
                 id,
                 source: "scet",
@@ -45,23 +44,24 @@ const sourceRSS = (_event, context, callback) => {
                 url: item.guid,
                 author: item.creator,
                 excerpt: item.contentSnippet,
-                date
-              }), path: `src/data/rss/scet-${date}-${id}.json` })
+                date,
+              }),
+              path: `src/data/rss/scet-${date}-${id}.json`,
             })
-
-            gh.pushFiles("Testing JSON usage in CMS", filesToPush)
-              .then(() => {
-                callback(null, {
-                  statusCode: 200,
-                  body: JSON.stringify(filesToPush),
-                })
-              })
           })
+
+          gh.pushFiles("Testing JSON usage in CMS", filesToPush).then(() => {
+            callback(null, {
+              statusCode: 200,
+              body: JSON.stringify(filesToPush),
+            })
+          })
+        })
       })
       .catch(err => {
-        callback(err);
+        callback(err)
       })
   }
-};
+}
 
-module.exports.handler = sourceRSS;
+module.exports.handler = sourceRSS

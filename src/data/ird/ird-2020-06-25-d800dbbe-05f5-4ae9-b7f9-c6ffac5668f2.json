@@ -1,1 +1,10 @@
-{"templateKey":"ird-resource","source":"ird","id":"d800dbbe-05f5-4ae9-b7f9-c6ffac5668f2","tags":["Mentoring","Faculty","Rolling","General"],"title":"UC Berkeley Faculty Mentoring","url":"https://vpf.berkeley.edu/faculty-mentoring/department-mentoring-programs","description":"Informal and formal mentorship for faculty members of UC Berkeley focusing on the development of junior faculty members. Faculty members who seek mentorship should email the respective department mentorship point of contact in the URL.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "d800dbbe-05f5-4ae9-b7f9-c6ffac5668f2",
+  "tags": ["Mentoring", "Faculty", "Rolling", "General"],
+  "title": "UC Berkeley Faculty Mentoring",
+  "url": "https://vpf.berkeley.edu/faculty-mentoring/department-mentoring-programs",
+  "description": "Informal and formal mentorship for faculty members of UC Berkeley focusing on the development of junior faculty members. Faculty members who seek mentorship should email the respective department mentorship point of contact in the URL.",
+  "date": "2020-06-25"
+}

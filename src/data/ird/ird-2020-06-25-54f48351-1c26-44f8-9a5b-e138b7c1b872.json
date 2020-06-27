@@ -1,1 +1,19 @@
-{"templateKey":"ird-resource","source":"ird","id":"54f48351-1c26-44f8-9a5b-e138b7c1b872","tags":["Fellowships & Scholarships","Undergraduate Student","Graduate Student","Other","Women","One time","Summer","General"],"title":"Zonta International Women in Technology Scholarship","url":"https://www.zonta.org/Global-Impact/Education/Women-in-Technology-Scholarship","description":"This pilot program provides scholarships to women studying technology, focusing mainly on university students but also available to working adults. Zonta International Foundation will award up to US$112,000 in scholarships: 32 district/region scholarships of US$2,000 each and six international scholarships of US$8,000 each.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "54f48351-1c26-44f8-9a5b-e138b7c1b872",
+  "tags": [
+    "Fellowships & Scholarships",
+    "Undergraduate Student",
+    "Graduate Student",
+    "Other",
+    "Women",
+    "One time",
+    "Summer",
+    "General"
+  ],
+  "title": "Zonta International Women in Technology Scholarship",
+  "url": "https://www.zonta.org/Global-Impact/Education/Women-in-Technology-Scholarship",
+  "description": "This pilot program provides scholarships to women studying technology, focusing mainly on university students but also available to working adults. Zonta International Foundation will award up to US$112,000 in scholarships: 32 district/region scholarships of US$2,000 each and six international scholarships of US$8,000 each.",
+  "date": "2020-06-25"
+}
