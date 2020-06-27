@@ -1,62 +1,77 @@
 backend:
-  name: 'git-gateway'
-  branch: 'master'
+  name: "git-gateway"
+  branch: "master"
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}”'
-    update: 'Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
-    uploadMedia: '[skip ci] Upload “{{path}}”'
-    deleteMedia: '[skip ci] Delete “{{path}}”'
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
 
-media_folder: 'static/img'
-public_folder: '/img'
+media_folder: "static/img"
+public_folder: "/img"
 
 collections:
-  - name: 'rss'
-    label: 'RSS'
-    folder: 'src/data/rss'
+  - name: "rss"
+    label: "RSS"
+    folder: "src/data/rss"
     create: true
-    slug: '{{source}}-{{date}}-{{id}}'
+    slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'rss-post' }
-      - { label: 'ID', name: 'id', widget: 'string' }
-      - { label: 'Source', name: 'source', widget: 'string' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Url', name: 'url', widget: 'string' }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'markdown' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "rss-post",
+        }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Source", name: "source", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
 
-  - name: 'facebook'
-    label: 'FB'
-    folder: 'src/data/fb'
+  - name: "facebook"
+    label: "FB"
+    folder: "src/data/fb"
     create: true
-    slug: '{{source}}-{{date}}-{{id}}'
+    slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'fb-post' }
-      - { label: 'ID', name: 'id', widget: 'string' }
-      - { label: 'Source', name: 'source', widget: 'string' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Url', name: 'url', widget: 'string' }
-      - { label: 'Page', name: 'page', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'markdown' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Location', name: 'location', widget: 'string' }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "fb-post",
+        }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Source", name: "source", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+      - { label: "Page", name: "page", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string" }
 
-  - name: 'ird'
-    label: 'IRD Resource'
-    folder: 'src/data/ird'
+  - name: "ird"
+    label: "IRD Resource"
+    folder: "src/data/ird"
     create: true
-    slug: '{{source}}-{{date}}-{{id}}'
+    slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'ird-resource' }
-      - { label: 'ID', name: 'id', widget: 'string' }
-      - { label: 'Source', name: 'source', widget: 'list' }
-      - { label: 'Tags', name: 'tags', widget: 'string' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Url', name: 'url', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'markdown' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "ird-resource",
+        }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Source", name: "source", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
