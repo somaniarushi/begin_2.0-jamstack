@@ -46,15 +46,19 @@
     "format": "prettier --write \"./**/*.{js, jsx, json, md}\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
+  "lint-staged": {
+    "*./": ["eslint --fix", "prettier --write"]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn format"
+      "pre-commit": "lint-staged"
     }
   },
   "devDependencies": {
     "eslint": "^7.1.0",
     "husky": "^4.2.5",
     "jsdoc": "^3.6.4",
+    "lint-staged": ">=10",
     "netlify-lambda": "^1.6.3",
     "prettier": "^1.18.2"
   },
