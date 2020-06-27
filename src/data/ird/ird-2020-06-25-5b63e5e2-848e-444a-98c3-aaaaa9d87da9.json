@@ -1,1 +1,28 @@
-{"templateKey":"ird-resource","source":"ird","id":"5b63e5e2-848e-444a-98c3-aaaaa9d87da9","tags":["Networks","Undergraduate Student","Graduate Student","Faculty","Staff","Women","Under-represented minority","First generation college students","Veterans","U.S. Citizen","Non-U.S. Citizen","Indigenous peoples ","Multiracial people"," People of African descent ","People with Disabilities","Rolling","General"],"title":"Berkeley STEM Equity and Inclusion Initiative","url":"http://diversity.berkeley.edu/campus-climate/stem-equity-and-inclusion-initiative","description":"The STEM Equity & Inclusion Initiative seeks to advance partnerships in equity, inclusion, and diversity with STEM academic units to ensure student and research success. Has collected database and released report analyzing the database of programs that support the promotion of STEM on/closely related to the UC Berkeley campus.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "5b63e5e2-848e-444a-98c3-aaaaa9d87da9",
+  "tags": [
+    "Networks",
+    "Undergraduate Student",
+    "Graduate Student",
+    "Faculty",
+    "Staff",
+    "Women",
+    "Under-represented minority",
+    "First generation college students",
+    "Veterans",
+    "U.S. Citizen",
+    "Non-U.S. Citizen",
+    "Indigenous peoples ",
+    "Multiracial people",
+    " People of African descent ",
+    "People with Disabilities",
+    "Rolling",
+    "General"
+  ],
+  "title": "Berkeley STEM Equity and Inclusion Initiative",
+  "url": "http://diversity.berkeley.edu/campus-climate/stem-equity-and-inclusion-initiative",
+  "description": "The STEM Equity & Inclusion Initiative seeks to advance partnerships in equity, inclusion, and diversity with STEM academic units to ensure student and research success. Has collected database and released report analyzing the database of programs that support the promotion of STEM on/closely related to the UC Berkeley campus.",
+  "date": "2020-06-25"
+}

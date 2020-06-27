@@ -1,1 +1,10 @@
-{"templateKey":"ird-resource","source":"ird","id":"b8671ab3-cff0-423a-b58e-4a547cd053df","tags":["Events","Graduate Student"],"title":"test2","url":"testt","description":"test","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "b8671ab3-cff0-423a-b58e-4a547cd053df",
+  "tags": ["Events", "Graduate Student"],
+  "title": "test2",
+  "url": "testt",
+  "description": "test",
+  "date": "2020-06-25"
+}

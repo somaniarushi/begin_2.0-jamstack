@@ -1,1 +1,19 @@
-{"templateKey":"ird-resource","source":"ird","id":"092a0e1a-9010-474c-94a5-13927deb3e69","tags":["Funding & Grants","Fellowships & Scholarships","Undergraduate Student","Graduate Student","Under-represented minority","Low Income","Startups","General"],"title":"Jack Larson Scholarship-Undergraduate","url":"https://entrepreneurship.berkeley.edu/larson-scholarships/","description":"For the 2018-19 academic year, three to five awards of $2500 will be given to outstanding undergraduate students interested in entrepreneurship and who have shown a great need for support because of family hardship or who have overcome obstacles to be admitted to Haas. A faculty and staff committee will make the selections based on academic achievements, entrepreneurial experience, career goals, and financial need.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "092a0e1a-9010-474c-94a5-13927deb3e69",
+  "tags": [
+    "Funding & Grants",
+    "Fellowships & Scholarships",
+    "Undergraduate Student",
+    "Graduate Student",
+    "Under-represented minority",
+    "Low Income",
+    "Startups",
+    "General"
+  ],
+  "title": "Jack Larson Scholarship-Undergraduate",
+  "url": "https://entrepreneurship.berkeley.edu/larson-scholarships/",
+  "description": "For the 2018-19 academic year, three to five awards of $2500 will be given to outstanding undergraduate students interested in entrepreneurship and who have shown a great need for support because of family hardship or who have overcome obstacles to be admitted to Haas. A faculty and staff committee will make the selections based on academic achievements, entrepreneurial experience, career goals, and financial need.",
+  "date": "2020-06-25"
+}

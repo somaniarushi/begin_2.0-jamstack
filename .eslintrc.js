@@ -46,7 +46,6 @@ module.exports = {
             {"name": "Link", "linkAttribute": "to"}
         ]
     },
-    "ignorePatterns": ["node_modules/", "public/", ".*"],
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",

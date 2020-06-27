@@ -1,1 +1,17 @@
-{"templateKey":"ird-resource","source":"ird","id":"048fcc07-86ce-49cc-976a-9cdbc27b6d06","tags":["Networks","Student Groups","Graduate Student","Women","Rolling","General"],"title":"Graduate Women in Engineering (GWE)","url":"http://gwe.berkeley.edu/","description":"Primary purpose is to support all graduate engineering women (in body, spirit or identity â past, present, future, and fluid) in all their engineering endeavors. Throughout the year a number of informal events are held to allow women engineers (and those who support women in engineering) to welcome new students, network, share experiences, develop study groups, discuss issues and just socialize. Always looking for new faces to join us and welcome any suggestions for new events.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "048fcc07-86ce-49cc-976a-9cdbc27b6d06",
+  "tags": [
+    "Networks",
+    "Student Groups",
+    "Graduate Student",
+    "Women",
+    "Rolling",
+    "General"
+  ],
+  "title": "Graduate Women in Engineering (GWE)",
+  "url": "http://gwe.berkeley.edu/",
+  "description": "Primary purpose is to support all graduate engineering women (in body, spirit or identity â past, present, future, and fluid) in all their engineering endeavors. Throughout the year a number of informal events are held to allow women engineers (and those who support women in engineering) to welcome new students, network, share experiences, develop study groups, discuss issues and just socialize. Always looking for new faces to join us and welcome any suggestions for new events.",
+  "date": "2020-06-25"
+}

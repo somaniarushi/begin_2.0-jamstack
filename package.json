@@ -1,8 +1,8 @@
 {
-  "name": "jamstack-hackathon-starter",
-  "description": "Make Authenticated, Serverless, Dynamic Clientside JAMstack apps with Gatsby + Netlify (Functions + Identity)",
-  "version": "2.0.0",
-  "author": "swyx <swyx@dontemailme.com>",
+  "name": "begin-jamstack",
+  "description": "",
+  "version": "1",
+  "author": "",
   "dependencies": {
     "@reach/dialog": "^0.2.9",
     "@reach/tabs": "^0.1.6",
@@ -33,38 +33,38 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-netlify-identity-widget": "^0.2.5",
-    "rehype-parse": "^6.0.2",
-    "rehype-remark": "^8.0.0",
-    "remark-stringify": "^8.0.0",
-    "rss-parser": "^3.8.0",
-    "unified": "^9.0.0",
-    "vfile": "^4.1.1",
-    "vfile-reporter": "^6.0.1"
+    "rss-parser": "^3.8.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": [],
   "license": "MIT",
   "scripts": {
-    "postinstall_x": "netlify-lambda install",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
+    "postinstall": "netlify-lambda install",
+    "start": "netlify dev",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "format": "prettier --write \"src/**/*.{js,jsx,json,md}\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "lint-staged": {
+    "*.{js, jsx, json, md}": ["eslint --fix", "prettier --write"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "eslint": "^7.1.0",
+    "husky": "^4.2.5",
     "jsdoc": "^3.6.4",
+    "lint-staged": ">=10",
     "netlify-lambda": "^1.6.3",
     "prettier": "^1.18.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sw-yx/jamstack-hackathon-starter"
+    "url": "https://github.com/akirillo/begin_2.0-jamstack"
   },
   "bugs": {
-    "url": "https://github.com/sw-yx/jamstack-hackathon-starter/issues"
+    "url": "https://github.com/akirillo/begin_2.0-jamstack/issues"
   }
 }

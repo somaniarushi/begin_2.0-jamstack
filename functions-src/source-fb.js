@@ -2,12 +2,12 @@
  * @callback netlifyCallback
  */
 
-const config = require("../config");
-const moment = require("moment");
-const { v4: uuidv4 } = require("uuid");
+const config = require("../config")
+const moment = require("moment")
+const { v4: uuidv4 } = require("uuid")
 
-const { GithubAPI } = require("./github");
-const { FB } = require('fb');
+const { GithubAPI } = require("./github")
+const { FB } = require("fb")
 FB.setAccessToken(config.apikey)
 
 /**
@@ -20,54 +20,67 @@ FB.setAccessToken(config.apikey)
 const sourceFB = (_event, context, callback) => {
   if (context.clientContext) {
     let gh = new GithubAPI({
-      token: config.token
-    });
+      token: config.token,
+    })
 
     gh.init()
       .then(() => {
-        FB.api('', 'post', {
-          batch: [
-              { method: 'get', relative_url: '/me/events'},
-              { method: 'get', relative_url: '/techvista18/events'},
-            ]
+        FB.api(
+          "",
+          "post",
+          {
+            batch: [
+              { method: "get", relative_url: "/me/events" },
+              { method: "get", relative_url: "/techvista18/events" },
+            ],
           },
-        function(response) {
-                
-          const filesToPush = [];
+          function(response) {
+            const filesToPush = []
 
-          response.forEach(item => {
-            const file = JSON.parse(item.body);
-            file.data.forEach(event => {
-              const date = moment(event.start_time).format("YYYY-MM-DD");
-              const id = uuidv4();
+            response.forEach(item => {
+              const file = JSON.parse(item.body)
+              file.data.forEach(event => {
+                const date = moment(event.start_time).format("YYYY-MM-DD")
+                const id = uuidv4()
 
-              filesToPush.push({ content: JSON.stringify({
-                  templateKey: "fb-post",
-                  id,
-                  source: "fb",
-                  title: event.name,
-                  url: `facebook.com/${event.id}`,
-                  page: "test page",
-                  description: event.description,
-                  date,
-                  location: (Object.prototype.hasOwnProperty.call(event, 'place')) ? event.place.name : ""
-                }), path: `src/data/fb/fb-${date}-${id}.json` })
+                filesToPush.push({
+                  content: JSON.stringify({
+                    templateKey: "fb-post",
+                    id,
+                    source: "fb",
+                    title: event.name,
+                    url: `facebook.com/${event.id}`,
+                    page: "test page",
+                    description: event.description,
+                    date,
+                    location: Object.prototype.hasOwnProperty.call(
+                      event,
+                      "place"
+                    )
+                      ? event.place.name
+                      : "",
+                  }),
+                  path: `src/data/fb/fb-${date}-${id}.json`,
+                })
               })
-          })
+            })
 
-          gh.pushFiles(`FB-JSON storage in CMS on ${Date()}`, filesToPush)
-            .then(() => {
+            gh.pushFiles(
+              `FB-JSON storage in CMS on ${Date()}`,
+              filesToPush
+            ).then(() => {
               callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(filesToPush),
               })
             })
-        })
-    })
-    .catch(err => {
-      callback(err);
-    })
+          }
+        )
+      })
+      .catch(err => {
+        callback(err)
+      })
   }
-};
- 
-module.exports.handler = sourceFB;
+}
+
+module.exports.handler = sourceFB

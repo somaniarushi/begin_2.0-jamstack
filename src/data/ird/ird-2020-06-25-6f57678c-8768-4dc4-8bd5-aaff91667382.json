@@ -1,1 +1,16 @@
-{"templateKey":"ird-resource","source":"ird","id":"6f57678c-8768-4dc4-8bd5-aaff91667382","tags":["Education & Awareness","Funding & Grants","Undergraduate Student","Graduate Student","Everyone"],"title":"Out in Science, Technology, Engineering and Mathematics","url":"http://berkeley.ostem.org/","description":"Aims to unite LGBTQ+ students studying STEM to foster a strong professional and social network and to promote LGBTQ+ awareness within the academic and professional communities. Weekly meetings Monday at 7pm.","date":"2020-06-25"}
+{
+  "templateKey": "ird-resource",
+  "source": "ird",
+  "id": "6f57678c-8768-4dc4-8bd5-aaff91667382",
+  "tags": [
+    "Education & Awareness",
+    "Funding & Grants",
+    "Undergraduate Student",
+    "Graduate Student",
+    "Everyone"
+  ],
+  "title": "Out in Science, Technology, Engineering and Mathematics",
+  "url": "http://berkeley.ostem.org/",
+  "description": "Aims to unite LGBTQ+ students studying STEM to foster a strong professional and social network and to promote LGBTQ+ awareness within the academic and professional communities. Weekly meetings Monday at 7pm.",
+  "date": "2020-06-25"
+}
