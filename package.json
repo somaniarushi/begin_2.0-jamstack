@@ -42,8 +42,6 @@
     "start": "netlify dev",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "lint": "eslint --fix ./",
-    "format": "prettier --write \"./**/*.{js, jsx, json, md}\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "lint-staged": {
