@@ -47,7 +47,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "lint-staged": {
-    "./**/*.{js, jsx, json, md}": ["eslint --fix", "prettier --write"]
+    "*.{js, jsx, json, md}": ["eslint --fix", "prettier --write"]
   },
   "husky": {
     "hooks": {
