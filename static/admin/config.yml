@@ -47,6 +47,7 @@ collections:
           default: "rss-source",
         }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Source Key", name: "sourceKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "fb"
@@ -85,6 +86,7 @@ collections:
           default: "fb-source",
         }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Source Key", name: "sourceKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "ird"
