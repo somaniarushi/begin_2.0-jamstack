@@ -33,8 +33,25 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
 
-  - name: "facebook"
-    label: "FB"
+  - name: "rssSource"
+    label: "RSS Source"
+    folder: "src/data/rss/sources"
+    create: true
+    slug: "{{slug}}-{{id}}"
+    extension: json
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "rss-source",
+        }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+
+  - name: "fb"
+    label: "Facebook"
     folder: "src/data/fb"
     create: true
     slug: "{{source}}-{{date}}-{{id}}"
@@ -54,6 +71,23 @@ collections:
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Location", name: "location", widget: "string" }
+
+  - name: "fbSource"
+    label: "Facebook Source"
+    folder: "src/data/fb/sources"
+    create: true
+    slug: "{{slug}}-{{id}}"
+    extension: json
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "fb-source",
+        }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
 
   - name: "ird"
     label: "IRD Resource"
