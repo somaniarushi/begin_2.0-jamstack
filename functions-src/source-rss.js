@@ -28,9 +28,33 @@ const sourceRSS = (_event, context, callback) => {
 
     gh.init()
       .then(() => {
-        rssParser.parseURL("http://scet.berkeley.edu/feed/").then(feed => {
-          const filesToPush = []
+        return gh.getSources("rss")
+      })
+      .then(sources => {
+        const feedPromises = []
 
+        sources.forEach(source => {
+          feedPromises.push({
+            promise: rssParser.parseURL(source.url),
+            source: source.sourceKey,
+          })
+        })
+
+        return Promise.all(
+          feedPromises.map(feedPromise => feedPromise.promise)
+        ).then(feeds => {
+          return feeds.map((feed, i) => ({
+            feed,
+            source: sources[i].sourceKey,
+          }))
+        })
+      })
+      .then(feeds => {
+        const filesToPush = []
+
+        feeds.forEach(feedObj => {
+          const { feed } = feedObj
+          const { source } = feedObj
           feed.items.forEach(item => {
             const date = moment(item.isoDate).format("YYYY-MM-DD")
             const id = uuidv4()
@@ -39,24 +63,29 @@ const sourceRSS = (_event, context, callback) => {
               content: JSON.stringify({
                 templateKey: "rss-post",
                 id,
-                source: "scet",
+                source,
                 title: item.title,
                 url: item.guid,
                 author: item.creator,
                 excerpt: item.contentSnippet,
                 date,
               }),
-              path: `src/data/rss/scet-${date}-${id}.json`,
-            })
-          })
-
-          gh.pushFiles("Testing JSON usage in CMS", filesToPush).then(() => {
-            callback(null, {
-              statusCode: 200,
-              body: JSON.stringify(filesToPush),
+              path: `src/data/rss/${source}-${date}-${id}.json`,
             })
           })
         })
+
+        callback(null, {
+          statusCode: 200,
+          body: JSON.stringify(filesToPush),
+        })
+
+        // gh.pushFiles("Testing JSON usage in CMS", filesToPush).then(() => {
+        //   callback(null, {
+        //     statusCode: 200,
+        //     body: JSON.stringify(filesToPush),
+        //   })
+        // })
       })
       .catch(err => {
         callback(err)

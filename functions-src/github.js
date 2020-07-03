@@ -15,6 +15,21 @@ function GithubAPI(auth) {
     return this.setBranch("master")
   }
 
+  this.getSources = collection =>
+    repo
+      .getContents(currentBranch.name, `src/data/${collection}/sources/`, false)
+      .then(({ data }) => {
+        const blobPromises = []
+        data.forEach(file => {
+          blobPromises.push(repo.getBlob(file.sha))
+        })
+        return Promise.all(blobPromises)
+      })
+      .then(responses => {
+        return responses.map(res => res.data)
+      })
+      .catch(error => error)
+
   /**
    * Sets the current repository to make push to
    * @public
