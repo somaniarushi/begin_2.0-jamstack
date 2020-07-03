@@ -75,17 +75,15 @@ const sourceRSS = (_event, context, callback) => {
           })
         })
 
-        callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(filesToPush),
+        gh.pushFiles(
+          `RSS content push on ${moment().format("YYYY-MM-DD")}`,
+          filesToPush
+        ).then(() => {
+          callback(null, {
+            statusCode: 200,
+            body: JSON.stringify(filesToPush),
+          })
         })
-
-        // gh.pushFiles("Testing JSON usage in CMS", filesToPush).then(() => {
-        //   callback(null, {
-        //     statusCode: 200,
-        //     body: JSON.stringify(filesToPush),
-        //   })
-        // })
       })
       .catch(err => {
         callback(err)
