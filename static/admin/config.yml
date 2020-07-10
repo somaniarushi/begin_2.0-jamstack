@@ -19,12 +19,7 @@ collections:
     slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "rss-post",
-        }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-post" }
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Source", name: "source", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
@@ -40,12 +35,7 @@ collections:
     slug: "{{slug}}"
     extension: json
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "rss-source",
-        }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-source" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Source Key", name: "sourceKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
@@ -57,12 +47,7 @@ collections:
     slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "fb-post",
-        }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-post" }
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Source", name: "source", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
@@ -79,12 +64,7 @@ collections:
     slug: "{{slug}}"
     extension: json
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "fb-source",
-        }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-source" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Source Key", name: "sourceKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
@@ -96,12 +76,7 @@ collections:
     slug: "{{source}}-{{date}}-{{id}}"
     extension: json
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "ird-resource",
-        }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "ird-resource" }
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Source", name: "source", widget: "list" }
       - { label: "Tags", name: "tags", widget: "string" }
