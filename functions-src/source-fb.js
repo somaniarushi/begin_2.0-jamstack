@@ -2,13 +2,13 @@
  * @callback netlifyCallback
  */
 
-const config = require("../config")
 const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
 
-const { GithubAPI } = require("./github")
+const gh = require("./github")
 const { FB } = require("fb")
-FB.setAccessToken(config.apikey)
+// TODO: @Arushi update to make use of .env
+FB.setAccessToken(process.env.FB_KEY)
 
 /**
  * Pulls in FB events, saves it in a JSON, and pushes these JSONs as files to Github, where they are recognized by Netlify CMS.
@@ -19,10 +19,6 @@ FB.setAccessToken(config.apikey)
  */
 const sourceFB = (_event, context, callback) => {
   if (context.clientContext) {
-    let gh = new GithubAPI({
-      token: config.token,
-    })
-
     gh.init()
       .then(() => {
         FB.api(

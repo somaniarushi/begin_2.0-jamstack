@@ -188,6 +188,6 @@ function GithubAPI(auth) {
   }
 }
 
-module.exports = {
-  GithubAPI,
-}
+const gh = new GithubAPI({ token: process.env.GITHUB_TOKEN })
+
+module.exports = gh

@@ -2,13 +2,12 @@
  * @callback netlifyCallback
  */
 
-const config = require("../config")
 const _ = require("lodash")
 const axios = require("axios")
 const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
 
-const { GithubAPI } = require("./github")
+const gh = require("./github")
 
 /**
  * Pulls in resources from the Innovation Resources Database {@link https://innovationresourcedatabase.herokuapp.com/},
@@ -23,15 +22,12 @@ const sourceIRD = (_event, context, callback) => {
   if (context.clientContext) {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
-    let gh = new GithubAPI({
-      token: config.gitHubToken,
-    })
 
     gh.init()
       .then(() => {
         axios
           .get(
-            `https://berkeley-innovation-resources.herokuapp.com/resources?api_key=${config.irdApiKey}`
+            `https://berkeley-innovation-resources.herokuapp.com/resources?api_key=${process.env.IRD_KEY}`
           )
           .then(resourcesResponse => {
             const filesToPush = []
