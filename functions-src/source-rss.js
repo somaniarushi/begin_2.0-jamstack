@@ -2,13 +2,12 @@
  * @callback netlifyCallback
  */
 
-const config = require("../config")
 const Parser = require("rss-parser")
 const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
 
 const rssParser = new Parser()
-const { GithubAPI } = require("./github")
+const gh = require("./github")
 
 /**
  * Pulls in RSS content, saves the source, id, title, url, author, excerpt, and date of each item in a JSON, and pushes
@@ -20,11 +19,9 @@ const { GithubAPI } = require("./github")
  */
 const sourceRSS = (_event, context, callback) => {
   if (context.clientContext) {
+    console.log(process.env)
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
-    let gh = new GithubAPI({
-      token: config.gitHubToken,
-    })
 
     gh.init()
       .then(() => {

@@ -9,6 +9,7 @@
     "@reach/visually-hidden": "^0.1.4",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
+    "dotenv": "^8.2.0",
     "eslint-plugin-react": "^7.20.0",
     "fb": "^2.0.0",
     "gatsby": "^2.15.11",
@@ -45,7 +46,10 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "lint-staged": {
-    "*.{js, jsx, json, md}": ["eslint --fix", "prettier --write"]
+    "*.{js, jsx, json, md}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
