@@ -38,5 +38,5 @@ jobs:
         id: source-rss
         uses: Satak/webrequest-action@v1.2.3
         with:
-          url: http://3be10d5c621f.ngrok.io/.netlify/functions/test
+          url: http://9a5ae3090ea7.ngrok.io/.netlify/functions/test
           headers: '{ "Authorization": "Bearer ${{ steps.gen-jwt.outputs.token }}" }'
