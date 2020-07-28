@@ -1,0 +1,6 @@
+{
+  "templateKey": "rss-source",
+  "title": "CITRIS Foundry Feed",
+  "sourceKey": "citris",
+  "url": "http://citrisfoundry.org/feed/"
+}
