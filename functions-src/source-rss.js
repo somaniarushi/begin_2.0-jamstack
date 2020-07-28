@@ -7,7 +7,11 @@ const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
 const jwt = require("jsonwebtoken")
 
-const rssParser = new Parser()
+const rssParser = new Parser({
+  headers: {
+    "Content-Type": "text/html; charset=UTF-8",
+  },
+})
 const gh = require("./github")
 
 /**
@@ -55,8 +59,10 @@ const sourceRSS = (event, _context, callback) => {
               const date = moment(item.isoDate).format("YYYY-MM-DD")
               const id = uuidv4()
 
+              console.log(item.contentSnippet)
+
               filesToPush.push({
-                content: JSON.stringify({
+                content: {
                   templateKey: "rss-post",
                   id,
                   source,
@@ -65,26 +71,30 @@ const sourceRSS = (event, _context, callback) => {
                   author: item.creator,
                   excerpt: item.contentSnippet,
                   date,
-                }),
+                },
                 path: `src/data/rss/${source}-${date}-${id}.json`,
               })
             })
           })
 
-          gh.pushFiles(
-            `[skip netlify] RSS content push on ${moment().format(
-              "YYYY-MM-DD"
-            )}`,
-            filesToPush
-          ).then(() => {
-            callback(null, {
-              statusCode: 200,
-              headers: {
-                "Content-Type": "text/html; charset=UTF-8",
-              },
-              body: JSON.stringify(filesToPush),
-            })
+          // console.log(filesToPush);
+
+          callback(null, {
+            statusCode: 200,
+            body: JSON.stringify(filesToPush),
           })
+
+          // gh.pushFiles(
+          //   `[skip netlify] RSS content push on ${moment().format(
+          //     "YYYY-MM-DD"
+          //   )}`,
+          //   filesToPush
+          // ).then(() => {
+          //   callback(null, {
+          //     statusCode: 200,
+          //     body: JSON.stringify(filesToPush),
+          //   })
+          // })
         })
         .catch(err => {
           callback(err)
