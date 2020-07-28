@@ -19,7 +19,7 @@ const gh = require("./github")
  * @param {netlifyCallback} callback: Defined like callback in an AWS Lambda function, used to return either an error, or a response object.
  */
 const sourceRSS = (event, _context, callback) => {
-  const token = event.headers.Authorization.replace(/Bearer/i, "").trim()
+  const token = event.headers.authorization.replace(/Bearer/i, "").trim()
   jwt.verify(token, process.env.JWT_SECRET, error => {
     if (!error) {
       gh.init()
@@ -72,7 +72,9 @@ const sourceRSS = (event, _context, callback) => {
           })
 
           gh.pushFiles(
-            `RSS content push on ${moment().format("YYYY-MM-DD")}`,
+            `[skip netlify] RSS content push on ${moment().format(
+              "YYYY-MM-DD"
+            )}`,
             filesToPush
           ).then(() => {
             callback(null, {
