@@ -54,4 +54,4 @@ And, of course, we experience the benefits in loading time, SEO, and content ver
 
 ## Giving Credit Where Credit is Due
 
-This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
+This is a fork of https://github.com/sw-yx/jamstack-hackathon-starter which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
