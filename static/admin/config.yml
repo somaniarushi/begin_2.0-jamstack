@@ -84,3 +84,17 @@ collections:
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
+  
+  - name: "deadline"
+    label: "Deadline"
+    folder: "src/data/deadlines"
+    create: true
+    slug: "{{slug}}-{{date}}"
+    extension: json
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "deadline" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+      - { label: "Organization", name: "org", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
