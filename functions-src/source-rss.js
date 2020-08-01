@@ -7,11 +7,7 @@ const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
 const jwt = require("jsonwebtoken")
 
-const rssParser = new Parser({
-  headers: {
-    "Content-Type": "text/html; charset=UTF-8",
-  },
-})
+const rssParser = new Parser()
 const gh = require("./github")
 
 /**
@@ -59,42 +55,37 @@ const sourceRSS = (event, _context, callback) => {
               const date = moment(item.isoDate).format("YYYY-MM-DD")
               const id = uuidv4()
 
-              console.log(item.contentSnippet)
-
-              filesToPush.push({
-                content: {
-                  templateKey: "rss-post",
-                  id,
-                  source,
-                  title: item.title,
-                  url: item.guid,
-                  author: item.creator,
-                  excerpt: item.contentSnippet,
-                  date,
-                },
-                path: `src/data/rss/${source}-${date}-${id}.json`,
-              })
+              if (item.contentSnippet) {
+                filesToPush.push({
+                  content: Buffer.from(
+                    JSON.stringify({
+                      templateKey: "rss-post",
+                      id,
+                      source,
+                      title: item.title,
+                      url: item.guid,
+                      author: item.creator,
+                      excerpt: item.contentSnippet,
+                      date,
+                    })
+                  ),
+                  path: `src/data/rss/${source}-${date}-${id}.json`,
+                })
+              }
             })
           })
 
-          // console.log(filesToPush);
-
-          callback(null, {
-            statusCode: 200,
-            body: JSON.stringify(filesToPush),
+          gh.pushFiles(
+            `[skip netlify] RSS content push on ${moment().format(
+              "YYYY-MM-DD"
+            )}`,
+            filesToPush
+          ).then(() => {
+            callback(null, {
+              statusCode: 200,
+              body: JSON.stringify(filesToPush),
+            })
           })
-
-          // gh.pushFiles(
-          //   `[skip netlify] RSS content push on ${moment().format(
-          //     "YYYY-MM-DD"
-          //   )}`,
-          //   filesToPush
-          // ).then(() => {
-          //   callback(null, {
-          //     statusCode: 200,
-          //     body: JSON.stringify(filesToPush),
-          //   })
-          // })
         })
         .catch(err => {
           callback(err)
