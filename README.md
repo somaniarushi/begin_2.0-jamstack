@@ -29,29 +29,15 @@ And, of course, we experience the benefits in loading time, SEO, and content ver
 
 ---
 
-## Tech Specs
-
-### Technologies in Use
+## Technologies in Use
 * [Netlify](https://github.com/netlify/cli)
-* [Netlify Functions](https://github.com/netlify/functions) (Node)
-* [Netlify Identity](https://github.com/netlify/netlify-identity-widget)
-* [Netlify CMS](https://github.com/netlify/netlify-cms)
+  * [Netlify Functions](https://github.com/netlify/functions) (Node)
+  * [Netlify CMS](https://github.com/netlify/netlify-cms)
 * [Gatsby](https://github.com/gatsbyjs/gatsby) (React)
 * [Github API](https://github.com/github-tools/github)
-
-### Development Roadmap
-- [ ] [Implement data sourcing pipelines](https://github.com/akirillo/begin_2.0-jamstack/issues?q=is%3Aissue+is%3Aopen+label%3A%22data+sourcing%22)
-- [ ] [Integrate Netlify CMS](https://github.com/akirillo/begin_2.0-jamstack/issues/8)
-- [ ] [Design pages](https://github.com/akirillo/begin_2.0-jamstack/issues?q=is%3Aissue+is%3Aopen+label%3Apages)
-
-### Setup Instructions
-`WIP`
-
-### Docs/Resources
-`WIP`
 
 ---
 
 ## Giving Credit Where Credit is Due
 
-This is a fork of https://github.com/gatsbyjs/gatsby-starter-default which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=github&utm_medium=swyx-hackathon-starter&utm_campaign=devex)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
+This is a fork of https://github.com/sw-yx/jamstack-hackathon-starter which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.

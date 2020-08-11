@@ -5,6 +5,7 @@
 const Parser = require("rss-parser")
 const moment = require("moment")
 const { v4: uuidv4 } = require("uuid")
+const jwt = require("jsonwebtoken")
 
 const rssParser = new Parser()
 const gh = require("./github")
@@ -17,75 +18,82 @@ const gh = require("./github")
  * @param {Object} context: Provided by Netlify if Identity is enabled, contains a `clientContext` object with `identity` and `user` properties.
  * @param {netlifyCallback} callback: Defined like callback in an AWS Lambda function, used to return either an error, or a response object.
  */
-const sourceRSS = (_event, context, callback) => {
-  if (context.clientContext) {
-    console.log(process.env)
-    // TODO: Look into using the context object for auth.
-    // const { identity, user } = context.clientContext;
+const sourceRSS = (event, _context, callback) => {
+  const token = event.headers.authorization.replace(/Bearer/i, "").trim()
+  jwt.verify(token, process.env.JWT_SECRET, error => {
+    if (!error) {
+      gh.init()
+        .then(() => {
+          return gh.getSources("rss")
+        })
+        .then(sources => {
+          const feedPromises = []
 
-    gh.init()
-      .then(() => {
-        return gh.getSources("rss")
-      })
-      .then(sources => {
-        const feedPromises = []
+          sources.forEach(source => {
+            feedPromises.push({
+              promise: rssParser.parseURL(source.url),
+              source: source.sourceKey,
+            })
+          })
 
-        sources.forEach(source => {
-          feedPromises.push({
-            promise: rssParser.parseURL(source.url),
-            source: source.sourceKey,
+          return Promise.all(
+            feedPromises.map(feedPromise => feedPromise.promise)
+          ).then(feeds => {
+            return feeds.map((feed, i) => ({
+              feed,
+              source: sources[i].sourceKey,
+            }))
           })
         })
+        .then(feeds => {
+          const filesToPush = []
 
-        return Promise.all(
-          feedPromises.map(feedPromise => feedPromise.promise)
-        ).then(feeds => {
-          return feeds.map((feed, i) => ({
-            feed,
-            source: sources[i].sourceKey,
-          }))
-        })
-      })
-      .then(feeds => {
-        const filesToPush = []
+          feeds.forEach(feedObj => {
+            const { feed } = feedObj
+            const { source } = feedObj
+            feed.items.forEach(item => {
+              const date = moment(item.isoDate).format("YYYY-MM-DD")
+              const id = uuidv4()
 
-        feeds.forEach(feedObj => {
-          const { feed } = feedObj
-          const { source } = feedObj
-          feed.items.forEach(item => {
-            const date = moment(item.isoDate).format("YYYY-MM-DD")
-            const id = uuidv4()
+              if (item.contentSnippet) {
+                filesToPush.push({
+                  content: Buffer.from(
+                    JSON.stringify({
+                      templateKey: "rss-post",
+                      id,
+                      source,
+                      title: item.title,
+                      url: item.guid,
+                      author: item.creator,
+                      excerpt: item.contentSnippet,
+                      date,
+                    })
+                  ),
+                  path: `src/data/rss/${source}-${date}-${id}.json`,
+                })
+              }
+            })
+          })
 
-            filesToPush.push({
-              content: JSON.stringify({
-                templateKey: "rss-post",
-                id,
-                source,
-                title: item.title,
-                url: item.guid,
-                author: item.creator,
-                excerpt: item.contentSnippet,
-                date,
-              }),
-              path: `src/data/rss/${source}-${date}-${id}.json`,
+          gh.pushFiles(
+            `[skip netlify] RSS content push on ${moment().format(
+              "YYYY-MM-DD"
+            )}`,
+            filesToPush
+          ).then(() => {
+            callback(null, {
+              statusCode: 200,
+              body: JSON.stringify(filesToPush),
             })
           })
         })
-
-        gh.pushFiles(
-          `RSS content push on ${moment().format("YYYY-MM-DD")}`,
-          filesToPush
-        ).then(() => {
-          callback(null, {
-            statusCode: 200,
-            body: JSON.stringify(filesToPush),
-          })
+        .catch(err => {
+          callback(err)
         })
-      })
-      .catch(err => {
-        callback(err)
-      })
-  }
+    } else {
+      console.log(error)
+    }
+  })
 }
 
 module.exports.handler = sourceRSS
