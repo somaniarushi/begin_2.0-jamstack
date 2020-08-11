@@ -29,26 +29,12 @@ And, of course, we experience the benefits in loading time, SEO, and content ver
 
 ---
 
-## Tech Specs
-
-### Technologies in Use
+## Technologies in Use
 * [Netlify](https://github.com/netlify/cli)
-* [Netlify Functions](https://github.com/netlify/functions) (Node)
-* [Netlify Identity](https://github.com/netlify/netlify-identity-widget)
-* [Netlify CMS](https://github.com/netlify/netlify-cms)
+  * [Netlify Functions](https://github.com/netlify/functions) (Node)
+  * [Netlify CMS](https://github.com/netlify/netlify-cms)
 * [Gatsby](https://github.com/gatsbyjs/gatsby) (React)
 * [Github API](https://github.com/github-tools/github)
-
-### Development Roadmap
-- [ ] [Implement data sourcing pipelines](https://github.com/akirillo/begin_2.0-jamstack/issues?q=is%3Aissue+is%3Aopen+label%3A%22data+sourcing%22)
-- [ ] [Integrate Netlify CMS](https://github.com/akirillo/begin_2.0-jamstack/issues/8)
-- [ ] [Design pages](https://github.com/akirillo/begin_2.0-jamstack/issues?q=is%3Aissue+is%3Aopen+label%3Apages)
-
-### Setup Instructions
-`WIP`
-
-### Docs/Resources
-`WIP`
 
 ---
 
