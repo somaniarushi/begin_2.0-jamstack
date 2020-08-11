@@ -1,0 +1,6 @@
+{
+  "templateKey": "rss-source",
+  "title": "SkyDeck Feed",
+  "feedKey": "skydeck",
+  "url": "https://skydeck.berkeley.edu/feed/"
+}
