@@ -1,0 +1,6 @@
+{
+  "templateKey": "rss-source",
+  "title": "Haas Newsroom Feed",
+  "feedKey": "haas-newsroom",
+  "url": "https://newsroom.haas.berkeley.edu/feed/"
+}

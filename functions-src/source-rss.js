@@ -24,24 +24,19 @@ const sourceRSS = (event, _context, callback) => {
     if (!error) {
       gh.init()
         .then(() => {
-          return gh.getSources("rss")
+          return gh.getConfigs("rss")
         })
-        .then(sources => {
+        .then(rssConfigs => {
           const feedPromises = []
 
-          sources.forEach(source => {
-            feedPromises.push({
-              promise: rssParser.parseURL(source.url),
-              source: source.sourceKey,
-            })
+          rssConfigs.forEach(config => {
+            feedPromises.push(rssParser.parseURL(config.url))
           })
 
-          return Promise.all(
-            feedPromises.map(feedPromise => feedPromise.promise)
-          ).then(feeds => {
+          return Promise.all(feedPromises).then(feeds => {
             return feeds.map((feed, i) => ({
               feed,
-              source: sources[i].sourceKey,
+              feedKey: rssConfigs[i].feedKey,
             }))
           })
         })
@@ -50,7 +45,7 @@ const sourceRSS = (event, _context, callback) => {
 
           feeds.forEach(feedObj => {
             const { feed } = feedObj
-            const { source } = feedObj
+            const { feedKey } = feedObj
             feed.items.forEach(item => {
               const date = moment(item.isoDate).format("YYYY-MM-DD")
               const id = uuidv4()
@@ -61,7 +56,7 @@ const sourceRSS = (event, _context, callback) => {
                     JSON.stringify({
                       templateKey: "rss-post",
                       id,
-                      source,
+                      feedKey,
                       title: item.title,
                       url: item.guid,
                       author: item.creator,
@@ -69,7 +64,7 @@ const sourceRSS = (event, _context, callback) => {
                       date,
                     })
                   ),
-                  path: `src/data/rss/${source}-${date}-${id}.json`,
+                  path: `src/data/rss/${feedKey}-${date}-${id}.json`,
                 })
               }
             })

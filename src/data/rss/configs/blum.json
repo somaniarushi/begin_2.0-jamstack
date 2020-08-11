@@ -1,0 +1,6 @@
+{
+  "templateKey": "rss-source",
+  "title": "Blum Center Feed",
+  "feedKey": "blum",
+  "url": "http://blumcenter.berkeley.edu/feed"
+}
