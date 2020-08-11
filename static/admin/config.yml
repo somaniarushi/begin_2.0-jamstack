@@ -49,7 +49,6 @@ collections:
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-post" }
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Page", name: "page", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Page", name: "page", widget: "string" }
