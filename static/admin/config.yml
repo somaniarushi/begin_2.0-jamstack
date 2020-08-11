@@ -16,40 +16,39 @@ collections:
     label: "RSS"
     folder: "src/data/rss"
     create: true
-    slug: "{{source}}-{{date}}-{{id}}"
+    slug: "{{feed}}-{{date}}-{{id}}"
     extension: json
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-post" }
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Source", name: "source", widget: "string" }
+      - { label: "Feed", name: "feed", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Excerpt", name: "excerpt", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
 
-  - name: "rssSource"
-    label: "RSS Source"
-    folder: "src/data/rss/sources"
+  - name: "rssFeed"
+    label: "RSS Feed"
+    folder: "src/data/rss/configs"
     create: true
-    slug: "{{slug}}"
+    slug: "{{feedKey}}"
     extension: json
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-source" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-feed" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Source Key", name: "sourceKey", widget: "string" }
+      - { label: "Feed Key", name: "feedKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "fb"
     label: "Facebook"
     folder: "src/data/fb"
     create: true
-    slug: "{{source}}-{{date}}-{{id}}"
+    slug: "{{page}}-{{date}}-{{id}}"
     extension: json
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-post" }
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Source", name: "source", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Page", name: "page", widget: "string" }
@@ -57,28 +56,27 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Location", name: "location", widget: "string" }
 
-  - name: "fbSource"
-    label: "Facebook Source"
-    folder: "src/data/fb/sources"
+  - name: "fbPage"
+    label: "Facebook Page"
+    folder: "src/data/fb/configs"
     create: true
-    slug: "{{slug}}"
+    slug: "{{pageKey}}"
     extension: json
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-source" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-page" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Source Key", name: "sourceKey", widget: "string" }
+      - { label: "Page Key", name: "pageKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "ird"
     label: "IRD Resource"
     folder: "src/data/ird"
     create: true
-    slug: "{{source}}-{{date}}-{{id}}"
+    slug: "ird-{{date}}-{{id}}"
     extension: json
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "ird-resource" }
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Source", name: "source", widget: "list" }
       - { label: "Tags", name: "tags", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }

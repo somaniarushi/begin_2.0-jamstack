@@ -15,9 +15,9 @@ function GithubAPI(auth) {
     return this.setBranch("master")
   }
 
-  this.getSources = collection =>
+  this.getConfigs = collection =>
     repo
-      .getContents(currentBranch.name, `src/data/${collection}/sources/`, false)
+      .getContents(currentBranch.name, `src/data/${collection}/configs/`, false)
       .then(({ data }) => {
         const blobPromises = []
         data.forEach(file => {

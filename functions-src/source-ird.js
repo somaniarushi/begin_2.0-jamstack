@@ -54,7 +54,6 @@ const sourceIRD = (_event, _context, callback) => {
                 filesToPush.push({
                   content: JSON.stringify({
                     templateKey: "ird-resource",
-                    source: "ird",
                     id,
                     tags,
                     title: resource.title,
