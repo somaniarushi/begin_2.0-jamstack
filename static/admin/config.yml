@@ -12,36 +12,36 @@ media_folder: "static/img"
 public_folder: "/img"
 
 collections:
-  - name: "rss"
-    label: "RSS"
+  - name: "rssPost"
+    label: "RSS Post"
     folder: "src/data/rss"
     create: true
-    slug: "{{feed}}-{{date}}-{{id}}"
+    slug: "{{feedKey}}-{{date}}-{{id}}"
     extension: json
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-post" }
       - { label: "ID", name: "id", widget: "string" }
-      - { label: "Feed", name: "feed", widget: "string" }
+      - { label: "Feed Key", name: "feedKey", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Excerpt", name: "excerpt", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
 
-  - name: "rssFeed"
-    label: "RSS Feed"
+  - name: "rssConfig"
+    label: "RSS Config"
     folder: "src/data/rss/configs"
     create: true
     slug: "{{feedKey}}"
     extension: json
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-feed" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "rss-config" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Feed Key", name: "feedKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
-  - name: "fb"
-    label: "Facebook"
+  - name: "fbEvent"
+    label: "Facebook Event"
     folder: "src/data/fb"
     create: true
     slug: "{{page}}-{{date}}-{{id}}"
@@ -56,19 +56,19 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Location", name: "location", widget: "string" }
 
-  - name: "fbPage"
-    label: "Facebook Page"
+  - name: "fbConfig"
+    label: "Facebook Config"
     folder: "src/data/fb/configs"
     create: true
     slug: "{{pageKey}}"
     extension: json
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-page" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "fb-config" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Page Key", name: "pageKey", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
 
-  - name: "ird"
+  - name: "irdResource"
     label: "IRD Resource"
     folder: "src/data/ird"
     create: true
@@ -96,3 +96,29 @@ collections:
       - { label: "Organization", name: "org", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
+      
+  - name: "course"
+    label: "Course"
+    folder: "src/data/courses"
+    create: true
+    slug: "{{courseKey}}-{{id}}"
+    extension: json
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "course" }
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Course Key", name: "courseKey", widget: "string" }
+      - { label: "Number", name: "number", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+
+  - name: "courseConfig"
+    label: "Course Config"
+    folder: "src/data/courses/configs"
+    create: true
+    slug: "{{courseKey}}"
+    extension: json
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "course-config" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Course Key", name: "courseKey", widget: "string" }
+      - { label: "ID", name: "id", widget: "string" }

@@ -33,12 +33,12 @@ const sourceRSS = (event, _context, callback) => {
             feedPromises.push(rssParser.parseURL(config.url))
           })
 
-          return Promise.all(feedPromises).then(feeds => {
-            return feeds.map((feed, i) => ({
+          return Promise.all(feedPromises).then(feeds =>
+            feeds.map((feed, i) => ({
               feed,
               feedKey: rssConfigs[i].feedKey,
             }))
-          })
+          )
         })
         .then(feeds => {
           const filesToPush = []
@@ -71,9 +71,7 @@ const sourceRSS = (event, _context, callback) => {
           })
 
           gh.pushFiles(
-            `[skip netlify] RSS content push on ${moment().format(
-              "YYYY-MM-DD"
-            )}`,
+            `RSS content push on ${moment().format("YYYY-MM-DD")}`,
             filesToPush
           ).then(() => {
             callback(null, {

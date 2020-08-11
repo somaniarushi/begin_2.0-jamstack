@@ -1,5 +1,5 @@
 {
-  "templateKey": "rss-source",
+  "templateKey": "rss-config",
   "title": "CITRIS Foundry Feed",
   "feedKey": "citris",
   "url": "http://citrisfoundry.org/feed/"
