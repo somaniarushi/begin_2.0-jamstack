@@ -13,7 +13,8 @@ public_folder: "/img"
 
 collections:
   - name: "rssPost"
-    label: "RSS Post"
+    label: "RSS Posts"
+    label_singular: "RSS Post"
     folder: "src/data/rss"
     create: true
     slug: "{{feedKey}}-{{date}}-{{id}}"
@@ -29,7 +30,8 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
 
   - name: "rssConfig"
-    label: "RSS Config"
+    label: "RSS Configs"
+    label_singular: "RSS Config"
     folder: "src/data/rss/configs"
     create: true
     slug: "{{feedKey}}"
@@ -41,7 +43,8 @@ collections:
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "fbEvent"
-    label: "Facebook Event"
+    label: "Facebook Events"
+    label_singular: "Facebook Event"
     folder: "src/data/fb"
     create: true
     slug: "{{page}}-{{date}}-{{id}}"
@@ -57,7 +60,8 @@ collections:
       - { label: "Location", name: "location", widget: "string" }
 
   - name: "fbConfig"
-    label: "Facebook Config"
+    label: "Facebook Configs"
+    label_singular: "Facebook Config"
     folder: "src/data/fb/configs"
     create: true
     slug: "{{pageKey}}"
@@ -69,7 +73,8 @@ collections:
       - { label: "Url", name: "url", widget: "string" }
 
   - name: "irdResource"
-    label: "IRD Resource"
+    label: "IRD Resources"
+    label_singular: "IRD Resource"
     folder: "src/data/ird"
     create: true
     slug: "ird-{{date}}-{{id}}"
@@ -84,7 +89,8 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
   
   - name: "deadline"
-    label: "Deadline"
+    label: "Deadlines"
+    label_singular: "Deadline"
     folder: "src/data/deadlines"
     create: true
     slug: "{{slug}}-{{date}}"
@@ -98,11 +104,13 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       
   - name: "course"
-    label: "Course"
+    label: "Courses"
+    label_singular: "Course"
     folder: "src/data/courses"
     create: true
     slug: "{{courseKey}}-{{id}}"
     extension: json
+    identifier_field: number
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "course" }
       - { label: "ID", name: "id", widget: "string" }
@@ -112,7 +120,8 @@ collections:
       - { label: "Description", name: "description", widget: "markdown" }
 
   - name: "courseConfig"
-    label: "Course Config"
+    label: "Course Configs"
+    label_singular: "Course Config"
     folder: "src/data/courses/configs"
     create: true
     slug: "{{courseKey}}"

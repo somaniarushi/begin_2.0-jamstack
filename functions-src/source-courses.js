@@ -36,7 +36,7 @@ const sourceCourses = (event, _context, callback) => {
                 headers: {
                   Accept: "application/json",
                   app_id: process.env.COURSES_APP_ID,
-                  app_KEY: process.env.COURSES_APP_KEY,
+                  app_key: process.env.COURSES_APP_KEY,
                 },
               })
             )
@@ -44,7 +44,7 @@ const sourceCourses = (event, _context, callback) => {
 
           return Promise.all(coursePromises).then(courseResponses =>
             courseResponses.map((courseResponse, i) => ({
-              course: courseResponse.data.apiResponse.response.courses[0],
+              course: courseResponse.data.apiResponse.response.any.courses[0],
               courseKey: courseConfigs[i].courseKey,
             }))
           )
@@ -69,12 +69,12 @@ const sourceCourses = (event, _context, callback) => {
                   description: course.description,
                 })
               ),
-              path: `src/data/courses/${courseKey}-${id}`,
+              path: `src/data/courses/${courseKey}-${id}.json`,
             })
           })
 
           gh.pushFiles(
-            `RSS content push on ${moment().format("YYYY-MM-DD")}`,
+            `Courses content push on ${moment().format("YYYY-MM-DD")}`,
             filesToPush
           ).then(() => {
             callback(null, {
