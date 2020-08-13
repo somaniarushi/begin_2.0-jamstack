@@ -43,7 +43,7 @@ const sourceIRD = (_event, _context, callback) => {
 
               resourcesResponse.data.forEach(resource => {
                 const id = uuidv4()
-                const date = moment().format("YYYY-MM-DD")
+                const date = moment(resource.updated_at).format("YYYY-MM-DD")
                 const tags = _.flatMap(tagFields, field =>
                   _.map(
                     _.filter(resource[field], tag => tag.val),
