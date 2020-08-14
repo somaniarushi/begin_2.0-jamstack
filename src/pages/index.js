@@ -1,12 +1,13 @@
 import React from "react"
-import { ThemeProvider } from "theme-ui"
-import theme from "@rebass/preset"
-import MenuSidebar from "../components/MenuSidebar"
+import { Heading, Text, Button } from "theme-ui"
+import Layout from "../components/Layout"
 
 export default function HomePage() {
   return (
-    <ThemeProvider theme={theme}>
-      <MenuSidebar />
-    </ThemeProvider>
+    <Layout>
+      <Heading>Test</Heading>
+      <Text>Test</Text>
+      <Button>Test</Button>
+    </Layout>
   )
 }

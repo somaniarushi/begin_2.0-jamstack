@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { Flex, Box } from "rebass"
+import { Flex, Box } from "theme-ui"
 import HamburgerMenu from "react-hamburger-menu"
 
 export default function MenuSidebar() {
