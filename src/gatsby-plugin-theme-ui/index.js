@@ -7,6 +7,7 @@ export default {
     primary: "#003262",
     secondary: "#3B7EA1",
     accent: "#FDB515",
+    // highlighted:,
     muted: "#F6F5F1",
     modes: {
       dark: {
@@ -19,12 +20,12 @@ export default {
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
-    body: "freight-neo-pro, sans-serif, system-ui,",
-    heading: "freight-text-pro, inherit",
+    body: "freight-neo-pro, system-ui, sans-serif",
+    heading: "freight-text-pro, system-ui, sans-serif",
     monospace: "Menlo, monospace",
   },
   fontWeights: {
-    body: 400,
+    body: 500,
     heading: 700,
     bold: 700,
   },
@@ -36,14 +37,16 @@ export default {
     small: "0 0 4px rgba(0, 0, 0, .125)",
     large: "0 0 24px rgba(0, 0, 0, .125)",
   },
-  // variants: {
-  // },
-  // buttons: {
-  //   primary: {
-  //     color: 'white',
-  //     bg: 'primary',
-  //   }
-  // },
+  variants: {},
+  text: {},
+  buttons: {
+    primary: {
+      color: "white",
+      bg: "primary",
+      fontFamily: "body",
+      fontWeight: "body",
+    },
+  },
   styles: {
     root: {
       fontFamily: "body",
