@@ -8,8 +8,7 @@ import PropTypes from "prop-types"
 import _ from "lodash"
 
 import Head from "./head"
-// import MenuSidebar from "./MenuSidebar"
-import Sidebar from "./Sidebar.mdx"
+import Sidebar from "./sidebar.mdx"
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
