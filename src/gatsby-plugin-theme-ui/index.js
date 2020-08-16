@@ -2,6 +2,7 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
     text: "#333333",
+    headingText: "#003262",
     textOnHighlight: "#fb831f",
     background: "#f7f7f7",
     primary: "#FDB515",
@@ -44,7 +45,7 @@ export default {
       fontWeight: "heading",
       lineHeight: "heading",
       mb: 2,
-      color: "#003262",
+      color: "headingText",
     },
     pageTitle: {
       variant: "text.heading",
