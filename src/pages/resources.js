@@ -55,7 +55,7 @@ export default function ResourcesPage() {
         allResources,
         (resource) =>
           (activeTags.length === 0 ||
-            _.some(resource.tags, (tag) => activeTags.includes(tag))) &&
+            _.every(activeTags, (tag) => resource.tags.includes(tag))) &&
           (!searchValue ||
             resource.title.toLowerCase().includes(searchValue.toLowerCase()))
       )
