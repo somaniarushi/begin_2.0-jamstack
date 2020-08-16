@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Styled, MenuButton, Image } from "theme-ui"
 import { Sidenav } from "@theme-ui/sidenav"
-import NavLink from "./NavLink"
+import NavLink from "./nav_link"
 import { useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import _ from "lodash"
 
-import Head from "./Head"
+import Head from "./head"
 // import MenuSidebar from "./MenuSidebar"
 import Sidebar from "./Sidebar.mdx"
 
@@ -42,8 +42,8 @@ const Layout = ({ children }) => {
       <Head />
       <Flex
         sx={{
-          p: 3,
-          height: "64px",
+          p: [3, 4],
+          // height: "64px",
           alignItems: "center",
         }}
         as="header"
@@ -95,7 +95,9 @@ const Layout = ({ children }) => {
                 display: [null, "block"],
                 width: 256,
                 flex: "none",
-                p: 3,
+                top: [3, 4],
+                pl: [3, 4],
+                pr: 2,
                 mt: [64, 0],
               }}
             />
@@ -119,7 +121,8 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
+    .isRequired,
 }
 
 export default Layout

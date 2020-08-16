@@ -19,9 +19,9 @@ const gh = require("./github")
  * @param {Object} context: Provided by Netlify if Identity is enabled, contains a `clientContext` object with `identity` and `user` properties.
  * @param {netlifyCallback} callback: Defined like callback in an AWS Lambda function, used to return either an error, or a response object.
  */
-const sourceIRD = (_event, _context, callback) => {
-  const token = event.headers.Authorization.replace(/Bearer/i, "").trim()
-  jwt.verify(token, process.env.JWT_SECRET, error => {
+const sourceIRD = (event, _context, callback) => {
+  const token = event.headers.authorization.replace(/Bearer/i, "").trim()
+  jwt.verify(token, process.env.JWT_SECRET, (error) => {
     if (!error) {
       gh.init()
         .then(() => {
@@ -29,7 +29,7 @@ const sourceIRD = (_event, _context, callback) => {
             .get(
               `https://berkeley-innovation-resources.herokuapp.com/resources?api_key=${process.env.IRD_KEY}`
             )
-            .then(resourcesResponse => {
+            .then((resourcesResponse) => {
               const filesToPush = []
               const tagFields = [
                 "types",
@@ -41,13 +41,13 @@ const sourceIRD = (_event, _context, callback) => {
                 "technologies",
               ]
 
-              resourcesResponse.data.forEach(resource => {
+              resourcesResponse.data.forEach((resource) => {
                 const id = uuidv4()
                 const date = moment(resource.updated_at).format("YYYY-MM-DD")
-                const tags = _.flatMap(tagFields, field =>
+                const tags = _.flatMap(tagFields, (field) =>
                   _.map(
-                    _.filter(resource[field], tag => tag.val),
-                    tag => tag.val
+                    _.filter(resource[field], (tag) => tag.val),
+                    (tag) => tag.val
                   )
                 )
 
@@ -76,7 +76,7 @@ const sourceIRD = (_event, _context, callback) => {
               })
             })
         })
-        .catch(err => {
+        .catch((err) => {
           callback(err)
         })
     } else {
