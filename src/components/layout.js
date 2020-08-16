@@ -42,8 +42,8 @@ const Layout = ({ children }) => {
       <Head />
       <Flex
         sx={{
-          p: 3,
-          height: "64px",
+          p: 4,
+          // height: "64px",
           alignItems: "center",
         }}
         as="header"
@@ -95,7 +95,8 @@ const Layout = ({ children }) => {
                 display: [null, "block"],
                 width: 256,
                 flex: "none",
-                p: 3,
+                top: 4,
+                pl: 4,
                 mt: [64, 0],
               }}
             />

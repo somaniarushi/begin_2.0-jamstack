@@ -1,6 +1,6 @@
-import React from "react"
+/** @jsx jsx */
+import { jsx, Heading, Text } from "theme-ui"
 import PageTitle from "../components/PageTitle"
-import { Heading, Text } from "theme-ui"
 import Layout from "../components/Layout"
 import PropTypes from "prop-types"
 
@@ -23,7 +23,7 @@ Paragraph.propTypes = {
 export default function HomePage() {
   return (
     <Layout>
-      <PageTitle>Home</PageTitle>
+      <PageTitle>Berkeley Gateway to Innovation</PageTitle>
       <Heading>Why Berkeley?</Heading>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

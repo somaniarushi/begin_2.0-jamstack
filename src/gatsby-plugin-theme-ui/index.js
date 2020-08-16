@@ -2,13 +2,11 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
     text: "#333333",
-    headingText: "#003262",
-    textOnHighlight: "#fb831f",
     background: "#f7f7f7",
-    primary: "#FDB515",
-    secondary: "#C4820E",
-    accent: "#00B0DA",
-    highlight: "#FFECC5",
+    primary: "#003262",
+    secondary: "#3B7EA1",
+    accent: "#FDB515",
+    highlight: "rgba(0, 176, 218, 0.1)",
     muted: "#F2EFEA",
     modes: {
       dark: {
@@ -38,19 +36,35 @@ export default {
     small: "0 0 4px rgba(0, 0, 0, .125)",
     large: "0 0 24px rgba(0, 0, 0, .125)",
   },
+  radii: {
+    default: 2,
+  },
   variants: {},
+  cards: {
+    primary: {
+      padding: 2,
+      borderRadius: 4,
+      boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
+    },
+    compact: {
+      padding: 1,
+      borderRadius: 2,
+      border: "1px solid",
+      borderColor: "muted",
+    },
+  },
   text: {
     heading: {
       fontFamily: "heading",
       fontWeight: "heading",
       lineHeight: "heading",
       mb: 2,
-      color: "headingText",
     },
     pageTitle: {
       variant: "text.heading",
+      color: "primary",
       fontSize: [4, 5],
-      mb: 3,
+      mb: 5,
     },
     caps: {
       textTransform: "uppercase",
@@ -71,13 +85,20 @@ export default {
       transitionProperty: "background-color",
       transitionTimingFunction: "ease-out",
       transitionDuration: ".2s",
-      borderRadius: 2,
+      borderRadius: "default",
       "&:hover": {
         bg: "highlight",
       },
       "&.active": {
-        color: "textOnHighlight",
+        color: "secondary",
         bg: "highlight",
+      },
+    },
+    resourceTitle: {
+      textDecoration: "none",
+      color: "inherit",
+      "&:hover": {
+        color: "secondary",
       },
     },
   },
@@ -87,6 +108,25 @@ export default {
       bg: "primary",
       fontFamily: "body",
       fontWeight: "body",
+      cursor: "pointer",
+      outline: "none",
+    },
+    chip: {
+      cursor: "pointer",
+      outline: "none",
+      borderRadius: "default",
+      border: "1px solid #FDB515",
+      bg: "transparent",
+      color: "accent",
+      p: 1,
+      mr: 2,
+      mb: 2,
+      fontFamily: "body",
+      fontWeight: 700,
+      "&.active": {
+        bg: "accent",
+        color: "white",
+      },
     },
   },
   styles: {
