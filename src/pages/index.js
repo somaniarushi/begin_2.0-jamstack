@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Heading, Text } from "theme-ui"
-import PageTitle from "../components/PageTitle"
-import Layout from "../components/Layout"
+import PageTitle from "../components/page_title"
+import Layout from "../components/layout"
 import PropTypes from "prop-types"
 
 function Paragraph({ children }) {

@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx, Card, Heading, Text, Link, Input, Flex } from "theme-ui"
-import Chip from "../components/Chip"
-import { useState } from "react"
+import Chip from "../components/chip"
+import { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import PageTitle from "../components/PageTitle"
-import Layout from "../components/Layout"
+import PageTitle from "../components/page_title"
+import Layout from "../components/layout"
 import PropTypes from "prop-types"
+import _ from "lodash"
 
 export default function ResourcesPage() {
   const allResources = useStaticQuery(graphql`
@@ -22,7 +23,7 @@ export default function ResourcesPage() {
     }
   `).allIrdJson.nodes
 
-  const [resources] = useState(allResources)
+  const [resources, setResources] = useState(allResources)
   const [activeTags, setActiveTags] = useState([])
   const [searchValue, setSearchValue] = useState("")
 
@@ -48,8 +49,20 @@ export default function ResourcesPage() {
   }
 
   function filterResources() {
-    // TODO
+    // console.log(allResources[0].tags.map(tag => activeTags.includes(tag)))
+    setResources(
+      _.filter(
+        allResources,
+        (resource) =>
+          (activeTags.length === 0 ||
+            _.some(resource.tags, (tag) => activeTags.includes(tag))) &&
+          (!searchValue ||
+            resource.title.toLowerCase().includes(searchValue.toLowerCase()))
+      )
+    )
   }
+
+  useEffect(filterResources, [activeTags, searchValue])
 
   return (
     <Layout>
@@ -60,7 +73,6 @@ export default function ResourcesPage() {
         value={searchValue}
         onChange={(event) => {
           setSearchValue(event.target.value)
-          filterResources()
         }}
       />
       <Heading as="h4" sx={{ mb: 2 }}>
@@ -72,7 +84,6 @@ export default function ResourcesPage() {
             key={tag}
             onClick={() => {
               toggleTag(tag)
-              filterResources()
             }}
           >
             {tag}
