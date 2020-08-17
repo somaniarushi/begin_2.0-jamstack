@@ -4,3 +4,4 @@ node_modules
 public
 .env
 functions-src/test.js
+**/.DS_Store
