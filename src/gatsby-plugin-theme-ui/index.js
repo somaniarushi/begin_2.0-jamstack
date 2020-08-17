@@ -2,6 +2,7 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   colors: {
     text: "#333333",
+    greyText: "#555555",
     background: "#f7f7f7",
     primary: "#003262",
     secondary: "#3B7EA1",
@@ -69,7 +70,7 @@ export default {
     subtitle: {
       variant: "text.heading",
       fontWeight: 500,
-      color: "#555555",
+      color: "greyText",
       fontSize: [2, 3],
     },
     caps: {

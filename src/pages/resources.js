@@ -6,7 +6,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import PageTitle from "../components/page_title"
 import Layout from "../components/layout"
 import PropTypes from "prop-types"
-import _ from "lodash"
 
 export default function ResourcesPage() {
   const allResources = useStaticQuery(graphql`
@@ -51,11 +50,10 @@ export default function ResourcesPage() {
   function filterResources() {
     // console.log(allResources[0].tags.map(tag => activeTags.includes(tag)))
     setResources(
-      _.filter(
-        allResources,
+      allResources.filter(
         (resource) =>
           (activeTags.length === 0 ||
-            _.every(activeTags, (tag) => resource.tags.includes(tag))) &&
+            activeTags.every((tag) => resource.tags.includes(tag))) &&
           (!searchValue ||
             resource.title.toLowerCase().includes(searchValue.toLowerCase()))
       )
@@ -75,9 +73,6 @@ export default function ResourcesPage() {
           setSearchValue(event.target.value)
         }}
       />
-      <Heading as="h4" sx={{ mb: 2 }}>
-        Filters:
-      </Heading>
       <Flex sx={{ flexWrap: "wrap", mb: 4 }} columns={4}>
         {possibleTags.map((tag) => (
           <Chip

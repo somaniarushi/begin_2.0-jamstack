@@ -16,16 +16,16 @@ const axios = require("axios")
  */
 const sourceCourses = (event, _context, callback) => {
   const token = event.headers.authorization.replace(/Bearer/i, "").trim()
-  jwt.verify(token, process.env.JWT_SECRET, error => {
+  jwt.verify(token, process.env.JWT_SECRET, (error) => {
     if (!error) {
       gh.init()
         .then(() => {
           return gh.getConfigs("courses")
         })
-        .then(courseConfigs => {
+        .then((courseConfigs) => {
           const coursePromises = []
 
-          courseConfigs.forEach(courseConfig => {
+          courseConfigs.forEach((courseConfig) => {
             coursePromises.push(
               axios({
                 method: "GET",
@@ -42,17 +42,17 @@ const sourceCourses = (event, _context, callback) => {
             )
           })
 
-          return Promise.all(coursePromises).then(courseResponses =>
+          return Promise.all(coursePromises).then((courseResponses) =>
             courseResponses.map((courseResponse, i) => ({
               course: courseResponse.data.apiResponse.response.any.courses[0],
               courseKey: courseConfigs[i].courseKey,
             }))
           )
         })
-        .then(courses => {
+        .then((courses) => {
           const filesToPush = []
 
-          courses.forEach(courseObj => {
+          courses.forEach((courseObj) => {
             const { course } = courseObj
             const { courseKey } = courseObj
 
@@ -67,6 +67,8 @@ const sourceCourses = (event, _context, callback) => {
                   number: course.displayName,
                   title: course.title,
                   description: course.description,
+                  units: course.credit.value.fixed.units,
+                  department: course.subjectArea.description,
                 })
               ),
               path: `src/data/courses/${courseKey}-${id}.json`,
@@ -83,7 +85,7 @@ const sourceCourses = (event, _context, callback) => {
             })
           })
         })
-        .catch(err => {
+        .catch((err) => {
           callback(err)
         })
     } else {

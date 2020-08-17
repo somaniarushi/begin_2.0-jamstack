@@ -5,7 +5,6 @@ import NavLink from "./nav_link"
 import { useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
-import _ from "lodash"
 
 import Head from "./head"
 import Sidebar from "./sidebar.mdx"
@@ -16,7 +15,15 @@ const Layout = ({ children }) => {
 
   const logoData = useStaticQuery(graphql`
     query logoQuery {
-      allImageSharp {
+      allImageSharp(
+        filter: {
+          fluid: {
+            originalName: {
+              in: ["logo_graphic.png", "logo_text_horizontal.png"]
+            }
+          }
+        }
+      ) {
         nodes {
           fluid {
             originalName
@@ -27,13 +34,11 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const logoGraphic = _.find(
-    logoData.allImageSharp.nodes,
-    (node) => node.fluid.originalName === "logo_graphic.png"
+  const logoGraphic = logoData.allImageSharp.nodes.find(
+    (image) => image.fluid.originalName === "logo_graphic.png"
   ).fluid.src
-  const logoText = _.find(
-    logoData.allImageSharp.nodes,
-    (node) => node.fluid.originalName === "logo_text_horizontal.png"
+  const logoText = logoData.allImageSharp.nodes.find(
+    (image) => image.fluid.originalName === "logo_text_horizontal.png"
   ).fluid.src
 
   return (
