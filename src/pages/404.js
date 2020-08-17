@@ -1,14 +1,14 @@
-import React from "react"
-
+/** @jsx jsx */
+import { jsx, Image } from "theme-ui"
+import NotFoundImage from "../images/404.svg"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import PageTitle from "../components/page_title"
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
-
-export default NotFoundPage
+export default function NotFoundPage() {
+  return (
+    <Layout>
+      <PageTitle sx={{ mb: 5 }}>Page Not Found</PageTitle>
+      <Image src={NotFoundImage} />
+    </Layout>
+  )
+}
