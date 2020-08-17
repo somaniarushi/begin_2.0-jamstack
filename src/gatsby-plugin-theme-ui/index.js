@@ -64,7 +64,13 @@ export default {
       variant: "text.heading",
       color: "primary",
       fontSize: [4, 5],
-      mb: [4, 5],
+      mb: 4,
+    },
+    subtitle: {
+      variant: "text.heading",
+      fontWeight: 500,
+      color: "#555555",
+      fontSize: [2, 3],
     },
     caps: {
       textTransform: "uppercase",
@@ -92,13 +98,6 @@ export default {
       "&.active": {
         color: "primary",
         bg: "highlight",
-      },
-    },
-    resourceTitle: {
-      textDecoration: "none",
-      color: "inherit",
-      "&:hover": {
-        color: "secondary",
       },
     },
   },
@@ -134,6 +133,13 @@ export default {
     root: {
       fontFamily: "body",
       fontWeight: "body",
+    },
+    a: {
+      textDecoration: "none",
+      color: "inherit",
+      "&:hover": {
+        color: "secondary",
+      },
     },
   },
 }
