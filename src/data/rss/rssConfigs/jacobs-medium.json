@@ -1,6 +1,6 @@
 {
   "templateKey": "rss-config",
-  "title": "Jacobs Institute Medium Feed",
+  "title": "Jacobs Institute",
   "feedKey": "jacobs-medium",
   "url": "https://medium.com/feed/@JacobsDesignCal"
 }

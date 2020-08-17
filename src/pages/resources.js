@@ -7,6 +7,19 @@ import PageTitle from "../components/page_title"
 import Layout from "../components/layout"
 import PropTypes from "prop-types"
 
+const possibleTags = [
+  "Events",
+  "Mentoring",
+  "Education & Awareness",
+  "Funding & Grants",
+  "Networks",
+  "Student Groups",
+  "Fellowships & Scholarships",
+  "Competitions",
+  "Accelerators & Incubators",
+  "Training & Support",
+]
+
 export default function ResourcesPage() {
   const allResources = useStaticQuery(graphql`
     query resourcesQuery {
@@ -26,19 +39,6 @@ export default function ResourcesPage() {
   const [activeTags, setActiveTags] = useState([])
   const [searchValue, setSearchValue] = useState("")
 
-  const possibleTags = [
-    "Events",
-    "Mentoring",
-    "Education & Awareness",
-    "Funding & Grants",
-    "Networks",
-    "Student Groups",
-    "Fellowships & Scholarships",
-    "Competitions",
-    "Accelerators & Incubators",
-    "Training & Support",
-  ]
-
   function toggleTag(value) {
     if (activeTags.includes(value)) {
       setActiveTags(activeTags.filter((filter) => filter !== value))
@@ -48,7 +48,6 @@ export default function ResourcesPage() {
   }
 
   function filterResources() {
-    // console.log(allResources[0].tags.map(tag => activeTags.includes(tag)))
     setResources(
       allResources.filter(
         (resource) =>
@@ -73,6 +72,9 @@ export default function ResourcesPage() {
           setSearchValue(event.target.value)
         }}
       />
+      <Heading sx={{ mb: 2 }} variant="subtitle">
+        Types:
+      </Heading>
       <Flex sx={{ flexWrap: "wrap", mb: 4 }} columns={4}>
         {possibleTags.map((tag) => (
           <Chip
@@ -99,7 +101,7 @@ function ResourceCard({ resource }) {
         mb: 4,
       }}
     >
-      <Heading as="h3">
+      <Heading>
         <Link href={resource.url}>{resource.title}</Link>
       </Heading>
       <Text>{resource.description}</Text>

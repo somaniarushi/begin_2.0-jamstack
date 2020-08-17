@@ -32,7 +32,7 @@ collections:
   - name: "rssConfigs"
     label: "RSS Configs"
     label_singular: "RSS Config"
-    folder: "src/data/rss/configs"
+    folder: "src/data/rss/rssConfigs"
     create: true
     slug: "{{feedKey}}"
     extension: json
@@ -62,7 +62,7 @@ collections:
   - name: "fbConfigs"
     label: "Facebook Configs"
     label_singular: "Facebook Config"
-    folder: "src/data/fb/configs"
+    folder: "src/data/fb/fbConfigs"
     create: true
     slug: "{{pageKey}}"
     extension: json
@@ -125,7 +125,7 @@ collections:
   - name: "courseConfigs"
     label: "Course Configs"
     label_singular: "Course Config"
-    folder: "src/data/courses/configs"
+    folder: "src/data/courses/courseConfigs"
     create: true
     slug: "{{courseKey}}"
     extension: json
