@@ -101,6 +101,7 @@ collections:
       - { label: "Url", name: "url", widget: "string" }
       - { label: "Organization", name: "org", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
       
   - name: "courses"
@@ -118,6 +119,8 @@ collections:
       - { label: "Number", name: "number", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Units", name: "units", widget: "number" }
+      - { label: "Department", name: "department", widget: "string" }
 
   - name: "courseConfigs"
     label: "Course Configs"
