@@ -119,6 +119,8 @@ collections:
       - { label: "Number", name: "number", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Units", name: "units", widget: "number" }
+      - { label: "Department", name: "department", widget: "string" }
 
   - name: "courseConfigs"
     label: "Course Configs"
