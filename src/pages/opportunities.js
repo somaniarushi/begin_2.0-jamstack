@@ -44,7 +44,7 @@ export default function OpportunitiesPage({ data }) {
       {allOpportunities.length === 0 ? (
         <Heading as="h3">No opportunities at the moment!</Heading>
       ) : (
-        <>
+        <div>
           <Heading sx={{ mb: 3 }}>Closest Deadline:</Heading>
           <OpportunityCard
             isClosest
@@ -64,7 +64,7 @@ export default function OpportunitiesPage({ data }) {
                 />
               ))
           )}
-        </>
+        </div>
       )}
     </Layout>
   )
