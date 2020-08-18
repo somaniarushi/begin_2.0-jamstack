@@ -100,8 +100,8 @@ function CourseCard({ course }) {
         mb: 3,
       }}
     >
-      <Heading>{course.number}</Heading>
-      <Heading as="h3">{course.title}</Heading>
+      <Heading variant="cardTitle">{course.number}</Heading>
+      <Heading variant="subtitle">{course.title}</Heading>
       <Text
         sx={{
           mb: 2,

@@ -72,7 +72,7 @@ function OpportunityCard({ isClosest, opportunity, placeholderImage }) {
           src={opportunity.image || placeholderImage}
         />
       ) : null}
-      <Heading sx={{ mt: isClosest ? 3 : "inherit" }}>
+      <Heading variant="cardTitle" sx={{ mt: isClosest ? 3 : "inherit" }}>
         <Link href={opportunity.url}>{opportunity.title}</Link>
       </Heading>
       <Flex

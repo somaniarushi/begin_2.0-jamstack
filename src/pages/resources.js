@@ -101,7 +101,7 @@ function ResourceCard({ resource }) {
         mb: 4,
       }}
     >
-      <Heading>
+      <Heading variant="cardTitle">
         <Link href={resource.url}>{resource.title}</Link>
       </Heading>
       <Text>{resource.description}</Text>
