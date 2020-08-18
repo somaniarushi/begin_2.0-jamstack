@@ -1,6 +1,6 @@
 {
   "templateKey": "rss-config",
-  "title": "SCET Feed",
+  "title": "SCET",
   "url": "http://scet.berkeley.edu/feed/",
   "feedKey": "scet"
 }

@@ -67,6 +67,9 @@ export default function CoursesPage({ data }) {
           setSearchValue(event.target.value)
         }}
       />
+      <Heading sx={{ mb: 2 }} variant="subtitle">
+        Departments:
+      </Heading>
       <Flex sx={{ flexWrap: "wrap", mb: 4 }} columns={4}>
         {possibleTags.map((tag) => (
           <Chip
@@ -94,10 +97,11 @@ function CourseCard({ course }) {
     <Card
       sx={{
         boxShadow: "small",
+        mb: 3,
       }}
     >
-      <Heading>{course.number}</Heading>
-      <Heading as="h3">{course.title}</Heading>
+      <Heading variant="cardTitle">{course.number}</Heading>
+      <Heading variant="subtitle">{course.title}</Heading>
       <Text
         sx={{
           mb: 2,

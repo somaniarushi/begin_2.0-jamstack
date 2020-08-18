@@ -1,5 +1,6 @@
 export default {
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  fontSizes: [16, 18, 20, 24, 32, 48, 64],
   colors: {
     text: "#333333",
     greyText: "#555555",
@@ -64,14 +65,18 @@ export default {
     pageTitle: {
       variant: "text.heading",
       color: "primary",
-      fontSize: [4, 5],
+      fontSize: [3, 4],
       mb: 4,
+    },
+    cardTitle: {
+      variant: "text.heading",
+      fontSize: [1, 2],
     },
     subtitle: {
       variant: "text.heading",
       fontWeight: 500,
       color: "greyText",
-      fontSize: [2, 3],
+      fontSize: [0, 1],
     },
     caps: {
       textTransform: "uppercase",
@@ -86,7 +91,7 @@ export default {
       my: 2,
       color: "inherit",
       textDecoration: "none",
-      fontSize: 2,
+      fontSize: 0,
       fontWeight: "bold",
       bg: "transparent",
       transitionProperty: "background-color",
@@ -110,6 +115,12 @@ export default {
       fontWeight: "body",
       cursor: "pointer",
       outline: "none",
+    },
+    icon: {
+      cursor: "pointer",
+      outline: "none",
+      position: "absolute",
+      top: "50%",
     },
     chip: {
       cursor: "pointer",
