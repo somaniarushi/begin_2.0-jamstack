@@ -141,6 +141,18 @@ export default {
       },
     },
   },
+  forms: {
+    input: {
+      fontFamily: "body",
+    },
+    select: {
+      fontFamily: "body",
+    },
+    textarea: {
+      fontFamily: "body",
+      resize: "none",
+    },
+  },
   styles: {
     root: {
       fontFamily: "body",
