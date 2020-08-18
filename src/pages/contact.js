@@ -14,6 +14,7 @@ export default function ContactPage() {
         netlify-honeypot="bot-field"
       >
         <input name="bot-field" type="hidden" />
+        <input name="form-name" value="contact" type="hidden" />
         <Label htmlFor="name" sx={{ mb: 1 }}>
           Name
         </Label>
