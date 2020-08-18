@@ -16,6 +16,7 @@ export const query = graphql`
         date
         description
         id
+        image
       }
     }
     allImageSharp(
@@ -40,16 +41,31 @@ export default function OpportunitiesPage({ data }) {
   return (
     <Layout>
       <PageTitle>Opportunities</PageTitle>
-      <Heading sx={{ mb: 3 }}>Closest Deadline:</Heading>
-      <OpportunityCard
-        isClosest
-        opportunity={closestOpportunity}
-        placeholderImage={placeholderImage}
-      />
-      <Heading sx={{ mb: 3 }}>Upcoming:</Heading>
-      {allOpportunities.slice(1).map((opportunity) => (
-        <OpportunityCard key={opportunity.id} opportunity={opportunity} />
-      ))}
+      {allOpportunities.length === 0 ? (
+        <Heading as="h3">No opportunities at the moment!</Heading>
+      ) : (
+        <>
+          <Heading sx={{ mb: 3 }}>Closest Deadline:</Heading>
+          <OpportunityCard
+            isClosest
+            opportunity={closestOpportunity}
+            placeholderImage={placeholderImage}
+          />
+          <Heading sx={{ mb: 3 }}>Upcoming:</Heading>
+          {allOpportunities.length === 1 ? (
+            <Heading as="h3">No other opportunities at the moment!</Heading>
+          ) : (
+            allOpportunities
+              .slice(1)
+              .map((opportunity) => (
+                <OpportunityCard
+                  key={opportunity.id}
+                  opportunity={opportunity}
+                />
+              ))
+          )}
+        </>
+      )}
     </Layout>
   )
 }
