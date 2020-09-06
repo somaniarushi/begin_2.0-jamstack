@@ -1,5 +1,7 @@
 # **Be**rkeley **G**ateway to **In**novation (**BEGIN**)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2521862-fc2b-4bf1-a8e7-76a86d5e73f2/deploy-status)](https://app.netlify.com/sites/festive-euler-7b8047/deploys)
+
 ## About BEGIN:
 The University of California, Berkeley offers entrepreneurs an unparalleled education, top research centers and faculty, and the opportunity to be part of the innovative culture in the San Francisco Bay Area and Silicon Valley.
 
