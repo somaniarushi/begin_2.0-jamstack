@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "Berkeley Gateway to Innovation",
-    description: ``,
-    author: `@akirillo`,
+    description: `Berkeley's Premiere Location for Innovators and Entrepreneurs`,
+    author: `@berkeleybegin`,
   },
 
   plugins: [
