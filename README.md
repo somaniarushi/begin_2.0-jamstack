@@ -1,8 +1,5 @@
 # **Be**rkeley **G**ateway to **In**novation (**BEGIN**)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fd23ba04-2e53-4410-bb9d-0e8fc3391a27/deploy-status)](https://app.netlify.com/sites/confident-shaw-66a094/deploys)
-
-
 ## About BEGIN:
 The University of California, Berkeley offers entrepreneurs an unparalleled education, top research centers and faculty, and the opportunity to be part of the innovative culture in the San Francisco Bay Area and Silicon Valley.
 
@@ -10,7 +7,6 @@ The Berkeley innovation & entrepreneurship ecosystem is both vast and nuanced, a
 
 The Berkeley Gateway to Innovation (BEGIN) is the portal to the I&E ecosystem at UC Berkeley. Our goal is assist in navigating visitors to the most relevant resources, opportunities, and more for the stage they're at in their entrepreneurial journey.
 
----
 
 ## Why BEGIN 2.0?
 While the mission of BEGIN holds strong, the first iteration of the site had a number of issues:
@@ -21,13 +17,11 @@ While the mission of BEGIN holds strong, the first iteration of the site had a n
 
 For BEGIN 2.0, then, our goals are to make the site **responsive**, **interactive** (featuring a new roadmap section!), **efficient** at fetching and serving content, and **extensible** for future development.
 
-To do this, we're building BEGIN 2.0 on the ✨*J a m s t a c k* ✨. We're using a headless CMS (Netlify CMS) and a static site generator (Gatsby), along with a CI pipeline and hosting from Netlify.
+To do this, we're building BEGIN 2.0 on the ✨*Jamstack* ✨. We're using a headless CMS (Netlify CMS) and a static site generator (Gatsby), along with a CI pipeline and hosting from Netlify.
 
 This way, extending BEGIN becomes much more developer-friendly with the access to the React and Node ecosystems offered by Gatsby and Netlify. Simultaneusly, content creation remains user-friendly and accessible thanks to Netlify CMS.
 
 And, of course, we experience the benefits in loading time, SEO, and content versioning enabled by Jamstack practices.
-
----
 
 ## Technologies in Use
 * [Netlify](https://github.com/netlify/cli)
@@ -36,8 +30,4 @@ And, of course, we experience the benefits in loading time, SEO, and content ver
 * [Gatsby](https://github.com/gatsbyjs/gatsby) (React)
 * [Github API](https://github.com/github-tools/github)
 
----
 
-## Giving Credit Where Credit is Due
-
-This is a fork of https://github.com/sw-yx/jamstack-hackathon-starter which shows how to use Netlify Identity and Netlify Functions (via [Netlify Dev](https://www.netlify.com/products/dev/)) with Gatsby. Start here for your next JAMstack hackathon or use this as a reference implementation.
